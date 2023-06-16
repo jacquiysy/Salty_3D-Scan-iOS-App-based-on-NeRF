@@ -4,7 +4,14 @@
 ## Story Map
 
 ![stroyMap](https://github.com/jacquiysy/Salty/assets/55369832/c62b8f6c-3b1f-4168-865d-2a0efeb6ba48)
-
+| Component                | Description                              | Connection                               |
+| ------------------------ | ---------------------------------------- | ---------------------------------------- |
+| **Data Acquisition UI**  | Acquire data from various sources including users' phones. | Connect to**3D Generating Models** to transfer data and parameters using views. |
+| **3D Generating Models** | Generate 3D models based on the data obtained and parameters users specified. | Connect to **Display UI** for 3D representation of generated models. |
+| **Display UI**           | Display the generated 3D models to the user. | Connect to **Other App** to share 3D representation to other platforms and **Gallery** to save 3D representation on the cloud. |
+| **Other App**            | Provide additional functionality extended from the app including sharing. | /                                        |
+| **Gallery**              | Allow the user to view and manage a collection of 3D models. | Connect to **Other Users** allowing other users to download generated 3D representations. |
+| **Other Users**          | Allow other users to interact with the app. | Connect to **Display UI** allowing other users to share models. |
 
 ## Block Diagram
 
