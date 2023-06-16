@@ -3,6 +3,8 @@
 ## Python Dependencies
 Run `pip install -r requirements.txt` to install the python packages.
 
+Here are the list of packages:
+`
 commentjson
 imageio
 numpy
@@ -31,6 +33,7 @@ torch-scatter
 xatlas
 scikit-learn
 torchmetrics
+`
 
 ## Unity for AR Placement
 We will use [Unity](https://unity.com/) for AR placement 
