@@ -54,6 +54,26 @@ We use a backend database to allow interaction with users. The backend server wi
 
 Ref: File Uploads: https://docs.djangoproject.com/en/4.2/topics/http/file-uploads/
 # APIs and Controller
+### User login interface
+
+### File upload and sharing
+**Filestack**
+
+**Request Parameters**
+
+| Key | Location | Type | Description |
+| --- | --- | --- | --- |
+|`--data-binary` | string | @file name | name of the file for uploading|
+|`--header` | string | Content-Type | image/png for image uploading|
+
+**Returns**
+| Key | Location | Type | Description |
+| --- | --- | --- | --- |
+|`url` | JSON | string | location of file being stored|
+|`size` | JSON | int | size of file in KB |
+|`type` | JSON | string | same as header in `REQUEST`|
+|`filename`| JSON | string | name of the file for uploading|
+|`key` | JSON | string | file name in the cloud database |
 
 # View UI/UX
 
