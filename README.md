@@ -1,5 +1,11 @@
 # Getting Started
 
+## Python Dependencies
+Run `pip install -r requirements.txt` to install the python packages.
+
+## Unity for AR Placement
+We will use [Unity](https://unity.com/) for AR placement 
+
 # Model and Engine
 ## Story Map
 
