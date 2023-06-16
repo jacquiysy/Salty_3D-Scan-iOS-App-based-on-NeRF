@@ -3,6 +3,35 @@
 ## Python Dependencies
 Run `pip install -r requirements.txt` to install the python packages.
 
+commentjson
+imageio
+numpy
+opencv-python-headless
+pybind11
+pyquaternion
+scipy
+rich
+tqdm
+ninja
+torch
+scipy
+lpips
+pandas
+trimesh
+PyMCubes
+torch-ema
+dearpygui
+packaging
+matplotlib
+tensorboardX
+opencv-python
+imageio-ffmpeg
+pymeshlab
+torch-scatter
+xatlas
+scikit-learn
+torchmetrics
+
 ## Unity for AR Placement
 We will use [Unity](https://unity.com/) for AR placement 
 
