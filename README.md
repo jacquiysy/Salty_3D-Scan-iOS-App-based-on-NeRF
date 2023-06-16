@@ -55,6 +55,30 @@ We use a backend database to allow interaction with users. The backend server wi
 Ref: File Uploads: https://docs.djangoproject.com/en/4.2/topics/http/file-uploads/
 # APIs and Controller
 ### User login interface
+**Web Authentication API**
+
+WebAuthn uses asymmetric (public-key) cryptography instead of passwords or SMS texts for registering, authenticating, and multi-factor authentication with websites.
+
+**Returns**
+
+| Key | Location | Type | Description |
+| --- | --- | --- | --- |
+|`timeout` | JSON | number | time used in ms |
+|`success` | JSON | function | function of succeed in login the interface|
+|`fail` | JSON | function | function of fail to login the interface | 
+|`complete` | JSON | function | function of finish the login process |
+
+**`object.success` function**
+| Location | Type | Description |
+| --- | --- | --- |
+| code | string | openid, session key and other login information|
+
+**`object.fail` function**
+| Location | Type | Description |
+| --- | --- | --- |
+|errMsg | string | error message |
+| errno | number | errno code|
+
 
 ### File upload and sharing
 **Filestack**
