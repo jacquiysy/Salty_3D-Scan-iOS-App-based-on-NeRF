@@ -23,19 +23,16 @@ We will use [Unity](https://unity.com/) for AR placement
 
 ![block_diagram](https://github.com/jacquiysy/Salty/assets/55369832/d6324b3a-b45b-4ccb-adb0-56bfc54ce2fd)
 ### Data Acquisition UI
-**How the functionalities are implemented?**
 Use ARKit offered by swift, which contains a rendering function. Then Use camera position and implement camera calibration algorithm to compute intrinsic and extrinsic matrices. Maybe cameraCalibrationData function can be directly applied to photos. Use extrinsic matrices to calculate the world coordinates. Use the world coordinates of cameras and objects, compute missing parts and give a camera movement and rotation suggestion. When the user begin to take the picture, we are able to give a real-time suggestion of whether this pose is appropriate or not by the estimated coordinate and the previous images.
 
 
 ### 3D Generating Models
-**How the functionalities are implemented?**
 We utilize the taken image and the Nerf algorithm to train a MLP model, which should contain the 3D information. By quering from different pose, he output will be a Nerf-based MLP parameter, which could be considered as a compressed version of the 3D model. The generated MLP parameter could be generated to other popular 3D representation format, such as the Mesh format, using Nerf2Mesh algorithm.
 
 Ref: Instant Nerf: https://github.com/NVlabs/instant-ngp
 Ref: Nerf2Mesh: https://github.com/ashawkey/nerf2mesh
 
 ### Display UI
-**How the functionalities are implemented?**
 In the first part, we would like to use swift to display the .obj model, which is in the mesh format. We will directly utilizing the Swift's scene-related API. For AR placement, we would like to work on Unity's AR foundation system and export the app as Swift, which could be easily combined with our main UI. An alternative way is to directly export the python model in to Unity.
 
 Ref: Display .obj: https://developer.apple.com/forums/thread/3979
@@ -43,13 +40,11 @@ Ref: AR placement: https://github.com/fariazz/ARFoundationPlacementIndicator
 Ref: NeRF model to Unity: https://github.com/julienkay/MobileNeRF-Unity-Viewer
 
 ### Other App
-**How the functionalities are implemented?**
 We utilize system APIs such as iOS APIs to provide additional functionality to the user. One way to share the result with other apps is by using the Web Share API Level 2. This API allows for sharing files, including images, from a web app running in Safari on iOS. 
 
 Ref: iOS Safari Web Share API Level 2: https://developer.apple.com/forums/thread/133310
 
 ### Gallery
-**How the functionalities are implemented?**
 We use a backend database to allow interaction with users. The backend server will be built using Python and a web framework such as Django. Django provides functionalities for uploading and downloading files through the use of APIs that enable communication between the frontend of the app and the backend database.
 
 Ref: File Uploads: https://docs.djangoproject.com/en/4.2/topics/http/file-uploads/
