@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+  instant-ngp:
+    image: instantngp:latest
+    build:
+      context: ../instant-ngp
+      dockerfile: ../instant-ngp/.devcontainer/Dockerfile
+    stdin_open: True
+    tty: True
+    environment:
+      NVIDIA_DRIVER_CAPABILITIES: compute,utility,graphics
+      DISPLAY: $DISPLAY
+    volumes:
+      - ./input/:/volume/input
+      - ./output/:/volume/output
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    working_dir: /opt/instant-ngp
+    command: python3 /opt/instant-ngp/scripts/run.py --scene /volume/input/{} --save_mesh /volume/output/{}.obj --screenshot_dir /volume/output/{}
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
