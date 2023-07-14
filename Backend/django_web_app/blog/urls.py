@@ -5,7 +5,10 @@ from .views import (
     PostCreateView,
     PostUpdateView,
     PostDeleteView,
-    UserPostListView
+    UserPostListView,
+    post_title, 
+    post_content, 
+    post_file
 )
 from . import views
 
@@ -19,4 +22,8 @@ urlpatterns = [
     path('media/Files/<int:pk>',PostDeleteView.as_view(),name='post-delete' ),
     path('search/',views.search,name='search' ),
     path('about/', views.about, name='blog-about'),
+    # get file  title and description content of the post.
+    path('post/<int:pk>/title/', post_title, name='post_title'),
+    path('post/<int:pk>/content/', post_content, name='post_content'),
+    path('post/<int:pk>/file/', post_file, name='post_file'),
 ]

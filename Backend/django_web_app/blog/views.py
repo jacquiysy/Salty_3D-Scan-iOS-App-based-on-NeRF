@@ -39,6 +39,21 @@ def getfile(request):
    return serve(request, 'File')
 
 
+
+def post_title(request, pk):
+    post = Post.objects.get(pk=pk)
+    return HttpResponse(post.title)
+
+def post_content(request, pk):
+    post = Post.objects.get(pk=pk)
+    return HttpResponse(post.content)
+
+def post_file(request, pk):
+    post = Post.objects.get(pk=pk)
+    response = HttpResponse(post.file, content_type='application/octet-stream')
+    response['Content-Disposition'] = f'attachment; filename="{post.file.name}"'
+    return response
+
 class PostListView(ListView):
     model = Post
     template_name = 'blog/home.html'  # <app>/<model>_<viewtype>.html
@@ -63,14 +78,22 @@ class PostDetailView(DetailView):
     template_name = 'blog/post_detail.html'
 
 
-class PostCreateView(LoginRequiredMixin, CreateView):
+class PostCreateView(CreateView):
     model = Post
     template_name = 'blog/post_form.html'
     fields = ['title', 'content', 'file']
 
+    
+
     def form_valid(self, form):
-        form.instance.author = self.request.user
+        if self.request.user.is_authenticated:
+            form.instance.author = self.request.user
+        else:
+            # Handle the case where there is no logged-in user
+            default_user = User.objects.get(username='root')
+            form.instance.author = default_user
         return super().form_valid(form)
+        
 
 
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
