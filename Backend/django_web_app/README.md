@@ -1,7 +1,9 @@
+
 # Django-WebApp       <img alt="GitHub" src="https://img.shields.io/github/license/smahesh29/Django-WebApp">
 
 
-This project was done by me as a assignment for an internship.
+This project is modified for 441 Gallery function implementation.
+
 
 <h2>Assignment Problem Statement:</h2>
 
