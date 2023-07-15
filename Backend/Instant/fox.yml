@@ -4,8 +4,8 @@ services:
   instant-ngp:
     image: instantngp:latest
     build:
-      context: /data/instant-ngp
-      dockerfile: /data/instant-ngp/.devcontainer/Dockerfile
+      context: ../instant-ngp
+      dockerfile: ../instant-ngp/.devcontainer/Dockerfile
     stdin_open: True
     tty: True
     environment:
