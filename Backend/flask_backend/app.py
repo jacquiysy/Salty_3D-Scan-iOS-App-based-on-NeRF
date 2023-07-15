@@ -24,6 +24,8 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['INPUT_FOLDER'] = INPUT_FOLDER
 app.config['OUTPUT_FOLDER'] = OUTPUT_FOLDER
 app.config['YML_FOLDER'] = YML_FOLDER
+app.config['SESSION_TYPE'] = 'filesystem'
+app.config['SECRET_KEY'] = os.urandom(24)
 
 @app.route('/')
 def index():
@@ -48,6 +50,7 @@ def upload():
             file_path =os.path.join(app.config['UPLOAD_FOLDER'], filename)
             if os.path.exists(file_path):
                 os.remove.rmtree(file_path)
+            #print(save_path)
             file.save(file_path)
             return redirect(url_for('upload'))
     return "Uploaded"
@@ -58,10 +61,11 @@ def unzip_file(zip_src, dst_dir):
     if r:     
         fz = zipfile.ZipFile(zip_src, 'r')
         for file in fz.namelist():
-            fz.extract(file, dst_dir)       
+            fz.extract(file, dst_dir)
+        return True       
     else:
         print('This is not zip')
-
+        return False
 
 @app.route('/launch/<filename>')
 def launch(filename):
@@ -77,10 +81,13 @@ def launch(filename):
     if os.path.exists(input_dir_file):
         shutil.rmtree(input_dir_file)
 
-    if not os.path.exists(input_dir):
+    if not os.path.exists(zip_path):
         return "nofile"
     
-    unzip_file(zip_path, input_dir)
+    zipping_success = unzip_file(zip_path, input_dir)
+    if not zipping_success:
+        return "error"
+
     with open("./docker-compose.yml","r") as f:
         template = f.read()
         template = template.format(filename,filename,filename)
