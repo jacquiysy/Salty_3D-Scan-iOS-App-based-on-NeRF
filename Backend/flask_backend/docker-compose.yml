@@ -12,11 +12,11 @@ services:
       NVIDIA_DRIVER_CAPABILITIES: compute,utility,graphics
       DISPLAY: $DISPLAY
     volumes:
-      - ./input/:/volume/input
-      - ./output/:/volume/output
+      - ..:/volume
+      # - ./output/:/volume/output
       - /tmp/.X11-unix:/tmp/.X11-unix
-    working_dir: /opt/instant-ngp
-    command: python3 /opt/instant-ngp/scripts/run.py --scene /volume/input/{} --save_mesh /volume/output/{}.obj --screenshot_dir /volume/output/{}
+    working_dir: /volume
+    command:  python3 /opt/instant-ngp/scripts/run.py --scene /volume/input/{} --save_mesh /volume/output/{}.obj --video_camera_path /volume/input/base_cam.json --video_output /volume/output/{}.mp4  --video_n_seconds 5 --n_steps 1000 --video_fps 10
     deploy:
       resources:
         reservations:

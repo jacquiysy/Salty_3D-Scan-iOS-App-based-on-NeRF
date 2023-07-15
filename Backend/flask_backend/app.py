@@ -1,7 +1,6 @@
 import os
 from flask import Flask
 from flask import render_template, flash, request, redirect, url_for, send_from_directory
-from flask_bootstrap import Bootstrap
 from werkzeug.utils import secure_filename
 from python_on_whales import DockerClient
 import shutil
@@ -44,10 +43,12 @@ def upload():
         if file.filename == '':
             flash('No selected file')
             return redirect(request.url)
-        # if file and allowed_file(file.filename):
         else:
             filename = secure_filename(file.filename)
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            file_path =os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            if os.path.exists(file_path):
+                os.remove.rmtree(file_path)
+            file.save(file_path)
             return redirect(url_for('upload'))
     return "Uploaded"
 
@@ -65,11 +66,24 @@ def unzip_file(zip_src, dst_dir):
 @app.route('/launch/<filename>')
 def launch(filename):
     # Unzip from upload to input
-    input_dir=os.path.join(app.config['INPUT_FOLDER'], filename)
-    zip_path = os.path.join(app.config["UPLOAD_FOLDER"],filename)
-    os.makedir(input_dir)
-    unzip_file(zip_path, input_dir)
+    # input_dir=os.path.join(app.config['INPUT_FOLDER'], filename)
+    input_dir = app.config["INPUT_FOLDER"]
+    input_dir_file=os.path.join(app.config['INPUT_FOLDER'], filename)
+    if filename[-3:] !="zip":
+        filename_zip = filename + ".zip"    
     
+    zip_path = os.path.join(app.config["UPLOAD_FOLDER"],filename_zip)
+    
+    if os.path.exists(input_dir_file):
+        shutil.rmtree(input_dir_file)
+
+    if not os.path.exists(input_dir):
+        return "nofile"
+    
+    print(input_dir)
+    print(zip_path)
+
+    unzip_file(zip_path, input_dir)
     with open("./docker-compose.yml","r") as f:
         template = f.read()
         template = template.format(filename,filename,filename)
@@ -79,9 +93,10 @@ def launch(filename):
         f.write(template)
     docker = DockerClient(compose_files=[yml_path])
     docker.compose.build()
-    docker.compose.up(detach=True)
+    docker.compose.up()
+    docker.compose.down()
 
-    return "running"
+    return "finished"
 
 
 @app.route('/list_input_dir')
