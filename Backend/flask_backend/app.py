@@ -80,9 +80,6 @@ def launch(filename):
     if not os.path.exists(input_dir):
         return "nofile"
     
-    print(input_dir)
-    print(zip_path)
-
     unzip_file(zip_path, input_dir)
     with open("./docker-compose.yml","r") as f:
         template = f.read()
