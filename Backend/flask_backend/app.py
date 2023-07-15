@@ -124,7 +124,7 @@ def list_upload_dir():
 
 @app.route('/download/<filename>')
 def download(filename):
-    return send_from_directory(UPLOAD_PATH, filename, as_attachment=True)
+    return send_from_directory(OUTPUT_PATH, filename, as_attachment=True)
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=8080, debug=True)
