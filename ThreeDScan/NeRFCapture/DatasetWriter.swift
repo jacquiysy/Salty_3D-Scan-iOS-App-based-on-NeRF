@@ -117,6 +117,7 @@ class DatasetWriter {
                 print("Could not zip")
             }
         }
+        currentFrameCounter = 0
     }
     
     func uploadFilesToServer() {

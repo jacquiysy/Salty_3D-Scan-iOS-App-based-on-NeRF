@@ -18,7 +18,7 @@ struct ThreeDViewer: UIViewRepresentable {
         view.allowsCameraControl = true
         view.autoenablesDefaultLighting = true
         view.antialiasingMode = .multisampling2X
-        view.scene = SCNScene(named: product)
+        view.scene = SCNScene(named: "TD_Object/" + product)
         view.backgroundColor = .clear
         return view
     }
