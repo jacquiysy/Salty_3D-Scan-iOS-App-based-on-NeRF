@@ -5,6 +5,8 @@ from werkzeug.utils import secure_filename
 from python_on_whales import DockerClient
 import shutil
 import zipfile
+ 
+
 
 app = Flask(__name__)
 
@@ -68,25 +70,41 @@ def unzip_file(zip_src, dst_dir):
         return False
 
 @app.route('/launch/<filename>')
-def launch(filename):
+def launch(filename): 
     # Unzip from upload to input
     # input_dir=os.path.join(app.config['INPUT_FOLDER'], filename)
     input_dir = app.config["INPUT_FOLDER"]
     input_dir_file=os.path.join(app.config['INPUT_FOLDER'], filename)
     if filename[-3:] !="zip":
-        filename_zip = filename + ".zip"    
-    
+        filename_zip = filename + ".zip"
+
     zip_path = os.path.join(app.config["UPLOAD_FOLDER"],filename_zip)
-    
+
     if os.path.exists(input_dir_file):
         shutil.rmtree(input_dir_file)
 
-    if not os.path.exists(zip_path):
-        return "nofile"
-    
+    #print(zip_path)
+    #if not os.path.exists(zip_path):
+    #    return "nofile"
+
+    with zipfile.ZipFile(zip_path) as zfile:
+        dir_name = zfile.namelist()[0].split('/')[0]
+        print(dir_name)
+
+
+    old_input_dir_file = os.path.join(app.config['INPUT_FOLDER'], dir_name)
+
+    if os.path.exists(old_input_dir_file):
+        shutil.rmtree(old_input_dir_file)
+
     zipping_success = unzip_file(zip_path, input_dir)
+
     if not zipping_success:
         return "error"
+
+    if filename!= dir_name:
+#        old_input_dir_file = os.path.join(app.config['INPUT_FOLDER'], dir_name)
+        os.rename(old_input_dir_file, input_dir_file)
 
     with open("./docker-compose.yml","r") as f:
         template = f.read()
@@ -124,6 +142,15 @@ def list_upload_dir():
     for file in os.listdir(UPLOAD_PATH):
         filenames.append(file)
     return filenames
+
+
+# @app.route('/search/<filename>')
+# def download(filename):
+#     filenames = []
+#     for file in os.listdir(OUTPUT_PATH):
+#         if file[:-3]=="mp4":
+#             filenames.append({})
+#     return filenames
 
 
 @app.route('/download/<filename>')
