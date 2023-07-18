@@ -51,7 +51,7 @@ def upload():
             filename = secure_filename(file.filename)
             file_path =os.path.join(app.config['UPLOAD_FOLDER'], filename)
             if os.path.exists(file_path):
-                os.remove.rmtree(file_path)
+                os.remove(file_path)
             #print(save_path)
             file.save(file_path)
             return redirect(url_for('upload'))
