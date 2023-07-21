@@ -157,16 +157,16 @@ This section allows you to scan real-life objects and turn them into 3D models e
 </p>
 
 <p align="center">
-  <img src="images/scan5.png" width="200" style="display: block; margin: auto;" />
+  <img src="images/sacn5.png" width="200" style="display: block; margin: auto;" />
 </p>
 
 **Step4: Generate Models**
 <p align="center">
-  <img src="images/scan6.png" width="200" style="display: block; margin: auto;" />
+  <img src="images/san6.png" width="200" style="display: block; margin: auto;" />
 </p>
 
 <p align="center">
-  <img src="images/scan7.png" width="200" style="display: block; margin: auto;" />
+  <img src="images/sacn7.png" width="200" style="display: block; margin: auto;" />
 </p>
 
 **Step5: Download Models**
