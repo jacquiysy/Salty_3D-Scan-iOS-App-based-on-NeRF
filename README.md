@@ -136,12 +136,12 @@ This is the main screen of the app where you can access all the other sections. 
 ### Scan
 This section allows you to scan real-life objects and turn them into 3D models either from online or offline mode. You can use your device’s camera to capture pictures  of the object from different angles following instructions, and the app will generate a 3D model based on these pictures. Below is the flow illustration of Scan part.
 **Step1: Choosing Online/Offline Mode**
-![home](images/scan1.png)
+![home](images/scan1.png){:height="30%" width="30%"}
 **Step2: Capture Pictures following Instructions and Save Frame**
-![home](images/scan3.png)
+![home](images/scan3.png){:height="30%" width="30%"}
 **Step3: Name Your Own Model and Upload Images**
-![home](images/scan4.png)
-![home](images/scan5.png)
+![home](images/scan4.png){:height="30%" width="30%"}
+![home](images/scan5.png){:height="30%" width="30%"}
 ## Usability Test Results
 
 Our usability tests measured participant success in completing various tasks within a certain time frame or number of clicks. Here are the results:
