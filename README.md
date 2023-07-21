@@ -132,7 +132,7 @@ WebAuthn uses asymmetric (public-key) cryptography instead of passwords or SMS t
 | Team Member       | Contribution  |
 | ------------------------ | ------------------ |
 | Zihao Wei |      |
-| Zixuan Pan |     |
+| Zixuan Pan |  Scan guiding; Model generating and downloading frontend interface; 3D model diaplay frontend; Data collection and iteraction with backend.   |
 | Shuyuan Yang | Build up the whole frontend framework of the app, including each section view, homepage view, tabview and navigation system. Help with merging Nerf capture scan function into the app framework. Test to ensure the 3D viewer can display .obj files in display section. Establish the grid view, file management system and search function in the currently unfinished gallery section. |
 | Guanhua Xue |      | 
 | Chenhao Zheng |          |
