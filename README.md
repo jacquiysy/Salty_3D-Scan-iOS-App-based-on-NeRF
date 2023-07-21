@@ -132,28 +132,90 @@ Our UI/UX is composed of five main parts: Home, Scan, AR, Display and Gallery.
 ### Home 
 This is the main screen of the app where you can access all the other sections. It provides an overview of the app’s features and allows you to navigate to different sections.
 <p align="center">
-  <img src="images/home.png" width="400" style="display: block; margin: auto;" />
+  <img src="images/home.png" width="200" style="display: block; margin: auto;" />
 </p>
 
 ### Scan
 This section allows you to scan real-life objects and turn them into 3D models either from online or offline mode. You can use your device’s camera to capture pictures  of the object from different angles following instructions, and the app will generate a 3D model based on these pictures. Below is the flow illustration of Scan part.
+
+
 **Step1: Choosing Online/Offline Mode**
 
 
 <p align="center">
-  <img src="images/scan1.png" width="400" style="display: block; margin: auto;" />
+  <img src="images/scan1.png" width="200" style="display: block; margin: auto;" />
 </p>
+
 **Step2: Capture Pictures following Instructions and Save Frame**
 <p align="center">
-  <img src="images/scan3.png" width="400" style="display: block; margin: auto;" />
+  <img src="images/scan3.png" width="200" style="display: block; margin: auto;" />
 </p>
+
 **Step3: Name Your Own Model and Upload Images**
 <p align="center">
-  <img src="images/scan4.png" width="400" style="display: block; margin: auto;" />
+  <img src="images/scan4.png" width="200" style="display: block; margin: auto;" />
 </p>
+
 <p align="center">
-  <img src="images/scan5.png" width="400" style="display: block; margin: auto;" />
+  <img src="images/scan5.png" width="200" style="display: block; margin: auto;" />
 </p>
+
+**Step4: Generate Models**
+<p align="center">
+  <img src="images/scan6.png" width="200" style="display: block; margin: auto;" />
+</p>
+
+<p align="center">
+  <img src="images/scan7.png" width="200" style="display: block; margin: auto;" />
+</p>
+
+**Step5: Download Models**
+<p align="center">
+  <img src="images/san8.png" width="200" style="display: block; margin: auto;" />
+</p>
+
+### AR
+ This section allows users to place  3D models in an augmented reality environment. Users can use their device’s camera to view the real world and place your 3D models in it, allowing them to see how they would look in a real-life setting.
+ <p align="center">
+  <img src="images/ar1.png" width="200" style="display: block; margin: auto;" />
+</p>
+
+### Display
+ This section allows users to preview your 3D models in more detail. Users can rotate, zoom, and pan around the model to view it from different angles. Users can also generate new views of the model and save or share them.
+
+**Step1: Select Model**
+
+ <p align="center">
+  <img src="images/display1.png" width="200" style="display: block; margin: auto;" />
+</p>
+
+**Step2: View Model**
+
+ <p align="center">
+  <img src="images/display2.png" width="200" style="display: block; margin: auto;" />
+</p>
+
+### Gallery
+This section allows users to view and manage their collection of 3D models. Users can search for models by name, view them in more detail, download online models uploaded by other users, and share them with others.
+
+
+ <p align="center">
+  <img src="images/gallery1.png" width="200" style="display: block; margin: auto;" />
+</p>
+
+**Step1: Search a Model**
+
+ <p align="center">
+  <img src="images/gallery2.png" width="200" style="display: block; margin: auto;" />
+</p>
+
+**Step2: View/Share Model**
+
+ <p align="center">
+  <img src="images/gallery3.png" width="200" style="display: block; margin: auto;" />
+</p>
+
+
 ## Usability Test Results
 
 Our usability tests measured participant success in completing various tasks within a certain time frame or number of clicks. Here are the results:
@@ -171,12 +233,31 @@ Our usability tests measured participant success in completing various tasks wit
 | Search online for a certain model with names | < 30s               | 15s                                      |
 | Search locally for user's own model with names | < 30s               | 15s                                      |
 | Display model in gallery                 | < 5 clicks          | 1 click                                  |
+## Modifications and Justifications
+Based on the findings from the mockup usability tests, we have made the following modifications to our UI/UX design to address the issues and improve the overall user experience:
+
+1. Differentiating Move Camera and Drag Icons: We have changed the icon for dragging the 3D model to a hand icon, which is distinct from the move camera icon. This change ensures users can easily understand the action they need to perform to manipulate the model.
+2. Addition of Save Model Button: In the Display section, we have added a prominent "Save Model" button. This allows users to save the 3D model after previewing it in detail. Now, users can easily store the models they like for later use.
+3. Inclusion of Download Button in the Gallery: To enable users to download online models uploaded by other users, we have added a clear "Download" button in the gallery section. This button appears next to each online model, making it straightforward for users to access and save models they find interesting.
+4. Incorporating Share Model Button: To facilitate easy sharing of 3D models, we have added a "Share" icon directly after the model is generated. This way, users can quickly share their creations without needing to go through the preview process first.
+5. Clarity in Section Names: We have modified the label from "Collection" to "Scan" to better represent the process of collecting data to create 3D models. This change helps eliminate confusion between the Scan and Display sections.
+6. Refinement of Share View Function: The share button now appears only after a view has been generated. This change ensures that users can only share images after they have been created and are ready for sharing.
+
+**Justifications:**
+
+* Differentiating icons: By using distinct icons for move camera and drag actions, users can easily grasp the intended action, reducing confusion and improving interaction with the app.
+* Save and Download buttons: The inclusion of clear and visible buttons for saving and downloading models streamlines the process for users. They can now perform these actions with just a few clicks, enhancing user satisfaction.
+* Share model functionality: By adding a share button right after model generation, users can immediately share their creations. This simplifies the sharing process, making it more intuitive and efficient.
+* Clear section names: Renaming "Collection" to "Scan" provides a more accurate representation of the section's purpose, reducing ambiguity for users and facilitating smoother navigation.
+* Refined share view function: Requiring the generation of a view before the share button appears ensures that users only attempt to share completed and desired images. This avoids unintended sharing of undesired views.
+
+These changes help enhance user satisfaction, minimize confusion, and create a more user-friendly and intuitive app interface for our users.
 # Team Roster
 | Team Member       | Contribution  |
 | ------------------------ | ------------------ |
 | Zihao Wei |      |
 | Zixuan Pan |  Scan guiding; Model generating and downloading frontend interface; 3D model diaplay frontend; Data collection and iteraction with backend.   |
 | Shuyuan Yang | Build up the whole frontend framework of the app, including each section view, homepage view, tabview and navigation system. Help with merging Nerf capture scan function into the app framework. Test to ensure the 3D viewer can display .obj files in display section. Establish the grid view, file management system and search function in the currently unfinished gallery section. |
-| Guanhua Xue |      | 
+| Guanhua Xue |   Part of Gallery Backend; Build up Django web interface for gallery function.(Not adopted in real implementation); Help with UI/UX design and changes for APP.  | 
 | Chenhao Zheng |          |
 | Yihan Jin |        |
