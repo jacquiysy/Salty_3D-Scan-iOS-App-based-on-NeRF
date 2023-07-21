@@ -127,7 +127,38 @@ WebAuthn uses asymmetric (public-key) cryptography instead of passwords or SMS t
 |`key` | JSON | string | file name in the cloud database |
 
 # View UI/UX
+Our UI/UX is composed of five main parts: Home, Scan, AR, Display and Gallery.
+## Final UI/UX Design
+### Home 
+This is the main screen of the app where you can access all the other sections. It provides an overview of the app’s features and allows you to navigate to different sections.
+![home](images/home.png)
 
+### Scan
+This section allows you to scan real-life objects and turn them into 3D models either from online or offline mode. You can use your device’s camera to capture pictures  of the object from different angles following instructions, and the app will generate a 3D model based on these pictures. Below is the flow illustration of Scan part.
+**Step1: Choosing Online/Offline Mode**
+![home](images/scan1.png)
+**Step2: Capture Pictures following Instructions and Save Frame**
+![home](images/scan3.png)
+**Step3: Name Your Own Model and Upload Images**
+![home](images/scan4.png)
+![home](images/scan5.png)
+## Usability Test Results
+
+Our usability tests measured participant success in completing various tasks within a certain time frame or number of clicks. Here are the results:
+
+| Task                                     | Metric              | Participant Result (success samples on average) |
+| ---------------------------------------- | ------------------- | ---------------------------------------- |
+| Turn a circle to get the first round of video | < 30s               | 10s                                      |
+| Move the camera and take another video   | < 45s               | 20s                                      |
+| Put their own models in an AR environment | < 1 min             | 20s                                      |
+| Rotate their models in an AR environment | < 3 drags           | 2 drags                                  |
+| Generate new views with current model    | < 30s for each view | 30s                                      |
+| Save the model                           | < 3 clicks          | fail (no button appear)                  |
+| Share the model (actually share view)    | < 3 clicks          | 2 clicks                                 |
+| Download online models                   | < 1 min             | fail (no button appear)                  |
+| Search online for a certain model with names | < 30s               | 15s                                      |
+| Search locally for user's own model with names | < 30s               | 15s                                      |
+| Display model in gallery                 | < 5 clicks          | 1 click                                  |
 # Team Roster
 | Team Member       | Contribution  |
 | ------------------------ | ------------------ |
