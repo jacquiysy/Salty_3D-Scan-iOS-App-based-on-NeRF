@@ -27,6 +27,7 @@
 		2A602C8A2A6437DE0005E79C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A602C892A6437DE0005E79C /* HomeView.swift */; };
 		2A602C8C2A6438470005E79C /* ColumnStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A602C8B2A6438470005E79C /* ColumnStepper.swift */; };
 		2AD2844D2A643A170075262F /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD2844C2A643A170075262F /* Item.swift */; };
+		5E12CC242A658563003E5807 /* MyFavouriteImages in Resources */ = {isa = PBXBuildFile; fileRef = 5E12CC232A658563003E5807 /* MyFavouriteImages */; };
 		5EDDEC9E2A64D69600A19158 /* ThreeDViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDDEC9D2A64D69600A19158 /* ThreeDViewer.swift */; };
 		5EDDECA02A64D7B300A19158 /* TD_Object in Resources */ = {isa = PBXBuildFile; fileRef = 5EDDEC9F2A64D7B300A19158 /* TD_Object */; };
 		5EDDECA22A64D81400A19158 /* Images in Resources */ = {isa = PBXBuildFile; fileRef = 5EDDECA12A64D81400A19158 /* Images */; };
@@ -78,6 +79,7 @@
 		2A602C892A6437DE0005E79C /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		2A602C8B2A6438470005E79C /* ColumnStepper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColumnStepper.swift; sourceTree = "<group>"; };
 		2AD2844C2A643A170075262F /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		5E12CC232A658563003E5807 /* MyFavouriteImages */ = {isa = PBXFileReference; lastKnownFileType = folder; path = MyFavouriteImages; sourceTree = "<group>"; };
 		5EDDEC9D2A64D69600A19158 /* ThreeDViewer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreeDViewer.swift; sourceTree = "<group>"; };
 		5EDDEC9F2A64D7B300A19158 /* TD_Object */ = {isa = PBXFileReference; lastKnownFileType = folder; path = TD_Object; sourceTree = "<group>"; };
 		5EDDECA12A64D81400A19158 /* Images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Images; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 		C0C52A83287E7F940011820F = {
 			isa = PBXGroup;
 			children = (
+				5E12CC232A658563003E5807 /* MyFavouriteImages */,
 				5EDDECA12A64D81400A19158 /* Images */,
 				5EDDEC9F2A64D7B300A19158 /* TD_Object */,
 				057E776C293825FE0014E461 /* Packages */,
@@ -296,6 +299,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E12CC242A658563003E5807 /* MyFavouriteImages in Resources */,
 				5EDDECA22A64D81400A19158 /* Images in Resources */,
 				5EDDECA02A64D7B300A19158 /* TD_Object in Resources */,
 				0512302029499F50003915D9 /* NeRFCaptureData.idl in Resources */,
@@ -468,11 +472,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NeRFCapture/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = S4U4AG633L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NeRFCapture/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "NeRF Capture";
+				INFOPLIST_KEY_CFBundleDisplayName = TDScan;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
@@ -510,11 +514,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NeRFCapture/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = S4U4AG633L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NeRFCapture/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "NeRF Capture";
+				INFOPLIST_KEY_CFBundleDisplayName = TDScan;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";

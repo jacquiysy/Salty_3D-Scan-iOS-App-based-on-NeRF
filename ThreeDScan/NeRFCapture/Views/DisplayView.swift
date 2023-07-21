@@ -76,6 +76,11 @@ struct DisplayView: View {
             return
         }
         
+        guard let currentDirectoryURL = getDocumentsDirectory() else {
+            print("Failed to access the current directory")
+            return
+        }
+        
         do {
             let items = try fileManager.contentsOfDirectory(atPath: bundlePath)
             var names: [String] = []
@@ -96,6 +101,30 @@ struct DisplayView: View {
         } catch {
             print("Error while enumerating files: \(error.localizedDescription)")
         }
+        
+        
+        do {
+            let fileURLs = try FileManager.default.contentsOfDirectory(at: currentDirectoryURL, includingPropertiesForKeys: nil)
+            
+            let Names = fileURLs.map { $0.lastPathComponent }
+            
+            for fileName in Names {
+                if fileName.hasSuffix("obj") {
+                    fileNames.append(fileName)
+                }
+            }
+        } catch {
+            print("Error while listing file names in the current directory: \(error.localizedDescription)")
+        }
+    }
+
+
+    
+    // Helper function to get the documents directory URL
+    func getDocumentsDirectory() -> URL? {
+        let fileManager = FileManager.default
+        
+        return fileManager.urls(for: .documentDirectory, in: .userDomainMask).first
     }
     
     func navigateToDetailView(with fileName: String) {

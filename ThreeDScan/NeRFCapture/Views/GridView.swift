@@ -30,6 +30,10 @@ struct GridView: View {
         }
     }
     
+//    GridView.isFavourite = true
+    static var isFavourite = false
+//    @EnvironmentObject var favDataModel: DataModel
+    
     var body: some View {
         VStack {
             if isEditing {
@@ -71,6 +75,39 @@ struct GridView: View {
             Button(action: { showView = true }){
                 Text("Recent Models")
             }
+            ScrollView {
+                LazyVGrid(columns: gridColumns) {
+                    ForEach(searchResults) { item in
+                        GeometryReader { geo in
+                            NavigationLink(destination: DetailView(item: item)) {
+                                GridItemView(size: geo.size.width, item: item)
+                            }
+                        }
+                        .cornerRadius(8.0)
+                        .aspectRatio(1, contentMode: .fit)
+                        .overlay(alignment: .topTrailing) {
+                            if isEditing {
+                                Button {
+                                    withAnimation {
+                                        dataModel.removeItem(item)
+                                    }
+                                } label: {
+                                    Image(systemName: "xmark.square.fill")
+                                                .font(Font.title)
+                                                .symbolRenderingMode(.palette)
+                                                .foregroundStyle(.white, .red)
+                                }
+                                .offset(x: 7, y: -7)
+                            }
+                        }
+                    }
+                }
+                .padding()
+            }
+            Button(action: { showView = true }){
+                Text("My Favourite Models")
+            }
+//            GridView.isFavourite = true
             ScrollView {
                 LazyVGrid(columns: gridColumns) {
                     ForEach(searchResults) { item in

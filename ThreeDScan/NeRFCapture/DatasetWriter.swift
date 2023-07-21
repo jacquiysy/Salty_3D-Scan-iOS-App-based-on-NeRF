@@ -46,6 +46,7 @@ class DatasetWriter {
     @Published var currentState: ViewState = .noMatch
     @Published var currentFrameCounter = 0
     @Published var writerState = SessionState.SessionNotStarted
+    @Published var baseURL = "http://10.0.6.82:8080/"
     
     
     func projectExists(_ projectDir: URL) -> Bool {
@@ -98,18 +99,23 @@ class DatasetWriter {
         }
     }
     
-    func finalizeProject(zip: Bool = true) {
+    func finalizeProject(zip: Bool = true, alterName: String = ""){
         writerState = .SessionNotStarted
         let manifest_path = getDocumentsDirectory()
             .appendingPathComponent(projectName)
             .appendingPathComponent("transforms.json")
-        
         writeManifestToPath(path: manifest_path)
         DispatchQueue.global().async {
             do {
                 if zip {
-                    let _ = try Zip.quickZipFiles([self.projectDir], fileName: self.projectName)
-                    self.uploadFilesToServer()
+
+                    if alterName == "" {
+                        let _ = try Zip.quickZipFiles([self.projectDir], fileName: self.projectName)
+                    } else {
+                        let _ = try Zip.quickZipFiles([self.projectDir], fileName: alterName)
+                    }
+
+                    self.uploadFilesToServer(alterName: alterName)
                 }
                 try FileManager.default.removeItem(at: self.projectDir)
             }
@@ -120,10 +126,16 @@ class DatasetWriter {
         currentFrameCounter = 0
     }
     
-    func uploadFilesToServer() {
-        let fileURLs = [self.projectDir.deletingLastPathComponent().appendingPathComponent(projectName + ".zip")]
+    func uploadFilesToServer(alterName: String = "") {
+        var fileURLs: [URL] = []
+        if alterName == "" {
+            fileURLs = [self.projectDir.deletingLastPathComponent().appendingPathComponent(projectName + ".zip")]
+        } else {
+            fileURLs = [self.projectDir.deletingLastPathComponent().appendingPathComponent(alterName + ".zip")]
+        }
+        
 
-        let serverURL = URL(string: "http://8.140.200.169:8000/upload")!
+        let serverURL = URL(string: baseURL + "upload")!
 
         for fileURL in fileURLs {
             let fileName = fileURL.lastPathComponent
@@ -147,21 +159,27 @@ class DatasetWriter {
                 body.append("--\(boundary)--\r\n".data(using: String.Encoding.utf8)!)
 
                 request.httpBody = body as Data
+                
+                // TODO: Add uploading failed
 
                 let task = URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
                     if let error = error {
                         print("Error: \(error)")
+                        NotificationCenter.default.post(name: NSNotification.Name("Uploading finished"), object:nil)
                     } else if let data = data {
                         let responseString = String(data: data, encoding: .utf8)
                         print("Response: \(responseString ?? "")")
+                        NotificationCenter.default.post(name: NSNotification.Name("Uploading finished"), object:nil)
                     }
                 }
 
                 task.resume()
             } catch {
                 print("Error reading file: \(error)")
+                NotificationCenter.default.post(name: NSNotification.Name("Uploading finished"), object:nil)
             }
         }
+
     }
     
     func getCurrentFrameName() -> String {

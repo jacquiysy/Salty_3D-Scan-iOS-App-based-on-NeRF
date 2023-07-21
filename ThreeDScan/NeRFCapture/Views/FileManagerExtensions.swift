@@ -9,6 +9,9 @@ extension FileManager {
     /// The URL of the document directory.
     var documentDirectory: URL? {
 //        return self.urls(for: .documentDirectory, in: .userDomainMask).first
+        if GridView.isFavourite {
+            return Bundle.main.url(forResource: "MyFavouriteImages", withExtension: nil)
+        }
         return Bundle.main.url(forResource: "Images", withExtension: nil)
     }
     
@@ -18,6 +21,7 @@ extension FileManager {
     ///
     /// - returns: The URL of the copied or existing file in the documents directory, or nil if the copy failed.
     ///
+    
     func copyItemToDocumentDirectory(from sourceURL: URL) -> URL? {
         guard let documentDirectory = documentDirectory else { return nil }
         let fileName = sourceURL.lastPathComponent
