@@ -255,7 +255,7 @@ These changes help enhance user satisfaction, minimize confusion, and create a m
 # Team Roster
 | Team Member       | Contribution  |
 | ------------------------ | ------------------ |
-| Zihao Wei |      |
+| Zihao Wei |  Develop and deploy the 3D representation generation using instant-ngp on the backend server; Develop a light flask backend with all the features needed; Develop frontend 3d model displayment function;|
 | Zixuan Pan |  Scan guiding; Model generating and downloading frontend interface; 3D model diaplay frontend; Data collection and iteraction with backend.   |
 | Shuyuan Yang | Build up the whole frontend framework of the app, including each section view, homepage view, tabview and navigation system. Help with merging Nerf capture scan function into the app framework. Test to ensure the 3D viewer can display .obj files in display section. Establish the grid view, file management system and search function in the currently unfinished gallery section. |
 | Guanhua Xue |   Part of Gallery Backend; Build up Django web interface for gallery function.(Not adopted in real implementation); Help with UI/UX design and changes for APP.  | 
