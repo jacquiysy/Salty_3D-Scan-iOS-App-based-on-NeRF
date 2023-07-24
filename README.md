@@ -259,5 +259,5 @@ These changes help enhance user satisfaction, minimize confusion, and create a m
 | Zixuan Pan |  Scan guiding; Model generating and downloading frontend interface; 3D model diaplay frontend; Data collection and iteraction with backend.   |
 | Shuyuan Yang | Build up the whole frontend framework of the app, including each section view, homepage view, tabview and navigation system. Help with merging Nerf capture scan function into the app framework. Test to ensure the 3D viewer can display .obj files in display section. Establish the grid view, file management system and search function in the currently unfinished gallery section. |
 | Guanhua Xue |   Part of Gallery Backend; Build up Django web interface for gallery function.(Not adopted in real implementation); Help with UI/UX design and changes for APP.  | 
-| Chenhao Zheng |          |
+| Chenhao Zheng |  Mainly take charge of all the AR related functionalities (showing 3D objects in AR&VR, moving objects with hands, identify contact surface and place objects, etc ),   currently not integrating into main branch to avoid dependency conflict      |
 | Yihan Jin |        |
