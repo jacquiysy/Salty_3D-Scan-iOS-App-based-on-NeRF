@@ -144,13 +144,16 @@ def list_upload_dir():
     return filenames
 
 
-# @app.route('/search/<filename>')
-# def download(filename):
-#     filenames = []
-#     for file in os.listdir(OUTPUT_PATH):
-#         if file[:-3]=="mp4":
-#             filenames.append({})
-#     return filenames
+@app.route('/search/<filename>', methods=['post','get'])
+def search(filename):
+    filenames = []
+    keyword = request.form.get('filename')
+    if filename is None:
+        keyword = ""
+    for file in os.listdir(OUTPUT_PATH):
+        if keyword in file:
+            filenames.append(file)
+    return filenames
 
 
 @app.route('/download/<filename>')
