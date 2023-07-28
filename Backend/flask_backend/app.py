@@ -126,10 +126,13 @@ def launch(filename):
     with open( yml_path ,"w") as f:
         f.write(template)
     docker = DockerClient(compose_files=[yml_path])
+    
     docker.compose.build()
     docker.compose.up()
     docker.compose.down()
-
+    
+    shutil.move(os.path.join(app.config["OUTPUT_FOLDER"],filename + ".obj"),os.path.join(output_dir_name, filename + ".obj"))
+    shutil.move(os.path.join(app.config["OUTPUT_FOLDER"],filename + ".mp4"),os.path.join(output_dir_name, filename + ".mp4"))
     return "finished"
 
 
@@ -156,21 +159,25 @@ def list_upload_dir():
     return filenames
 
 
-@app.route('/search/<filename>', methods=['post','get'])
+@app.route('/search/<filename>')
 def search(filename):
     filenames = []
-    keyword = request.form.get('filename')
-    if filename is None
-        keyword = ""
-    for file in os.listdir(OUTPUT_PATH):
-        if keyword in file:
-            filenames.append(file)
+    #keyword = filename
+   
+    for files in os.listdir(app.config["OUTPUT_FOLDER"]):
+        if filename.lower() in files.lower():
+            filenames.append(files)
     return filenames
 
 
 @app.route('/download/<filename>')
 def download(filename):
-    return send_from_directory(OUTPUT_PATH, filename, as_attachment=True)
+    filename_head = filename.split(".")[0]
+    OUTPUT_TMP = os.path.join(OUTPUT_PATH,filename_head)
+    print(os.path.join(OUTPUT_TMP,filename))
+    if not os.path.exists(os.path.join(OUTPUT_TMP,filename)):
+        return ("Not exist")
+    return send_from_directory(OUTPUT_TMP, filename, as_attachment=True)
 
 
 
