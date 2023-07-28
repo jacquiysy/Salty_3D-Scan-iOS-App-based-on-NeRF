@@ -15,7 +15,34 @@ struct DestinationView: View {
     var body: some View {
         VStack{
             ThreeDViewer(product:modelName).frame(width: UIScreen.main.bounds.width)
+            HStack(alignment: .center, spacing: 55) {
+                Button(action: shareGIF) {
+                    Image(systemName: "square.and.arrow.up")
+                        .foregroundColor(.black);
+                    Text("Share gif")
+                }
+                Button(action: shareButton) {
+                    Image(systemName: "square.and.arrow.up")
+                        .foregroundColor(.black);
+                    Text("Share model")
+                }
+            }
         }
+    }
+    
+    func shareGIF(){
+        
+    }
+    
+    func shareButton() {
+        let url = URL(string: modelName)
+        let activityController = UIActivityViewController(activityItems: [url!], applicationActivities: nil)
+        
+        let scenes = UIApplication.shared.connectedScenes
+        let windowScene = scenes.first as? UIWindowScene
+        let window = windowScene?.windows.first
+        
+        windowScene?.windows.first?.rootViewController!.present(activityController, animated: true, completion: nil)
     }
 }
 

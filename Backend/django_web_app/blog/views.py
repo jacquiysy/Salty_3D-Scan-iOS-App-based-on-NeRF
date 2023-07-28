@@ -15,7 +15,7 @@ from django.urls import reverse_lazy
 from django.contrib.staticfiles.views import serve
 
 from django.db.models import Q
-
+from django.http import JsonResponse
 
 def home(request):
     context = {
@@ -94,6 +94,35 @@ class PostCreateView(CreateView):
             form.instance.author = default_user
         return super().form_valid(form)
         
+
+import json
+from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse
+from .models import Post
+
+@csrf_exempt
+def create_post(request):
+    if request.method != 'POST':
+        return HttpResponse(status=400)
+
+    # Load JSON data from the request body
+    data = json.loads(request.body)
+    title = data.get('title')
+    content = data.get('content')
+    file = request.FILES.get('file')
+
+    # Create a new post
+    post = Post.objects.create(title=title, content=content, file=file)
+
+    # Return a JSON response
+    response_data = {
+        'id': post.id,
+        'title': post.title,
+        'content': post.content,
+        'file': post.file.url if post.file else None
+    }
+    return JsonResponse(response_data)
+
 
 
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
