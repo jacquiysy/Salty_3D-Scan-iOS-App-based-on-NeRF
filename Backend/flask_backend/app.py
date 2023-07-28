@@ -213,12 +213,16 @@ def load_user(user_id):
 # Route for logging in
 
 # Create a new user object with the username 'admin'
-admin = User(username='admin', email='admin@example.com')
-admin.set_password('admin')
+#admin = User(username='admin', email='admin@example.com')
+#admin.set_password('admin')
 
 # Add the new user to the database
-db.session.add(admin)
-db.session.commit()
+#db.session.add(admin)
+#db.session.commit()
+# Create a Flask application context
+with app.app_context():
+    # Create the users table
+    db.create_all()
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -226,25 +230,17 @@ def login():
         # Get the username and password from the form
         username = request.form['username']
         password = request.form['password']
-
         user = User.query.filter_by(username=username).first()
 
         # Check if the user exists and if the entered password is correct
         if user is not None and user.check_password(password):
             # Log the user in
             login_user(user)
-            return redirect(url_for('index'))
+            return"login success"
+            # return redirect(url_for('index'))
+        else:
+            return 'login failed'
 
-    # Render the login form if the request is a GET request or if the login failed
-    return '''
-        <form method="post">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username">
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password">
-            <input type="submit" value="Login">
-        </form>
-    '''
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
@@ -253,13 +249,7 @@ def register():
         email = request.form['email']
         password = request.form['password']
 
-        # Check if a user with the entered username or email already exists
-        # user = User.query.filter((User.username == username) | (User.email == email)).first()
-        # if user:
-        #     # If a user with the entered username or email already exists, return an error message
-        #     return 'A user with that username or email already exists.'
 
-        # Create a new user object
         user = User(username=username, email=email)
         user.set_password(password)
 
@@ -268,20 +258,11 @@ def register():
         db.session.commit()
 
         # Redirect to the login page
-        return redirect(url_for('login'))
+        return 'register success'
+        # return redirect(url_for('login'))
+    else:
+        return 'register failed'
 
-    # Render the registration form if the request is a GET request or if the registration failed
-    return '''
-        <form method="post">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username">
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email">
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password">
-            <input type="submit" value="Register">
-        </form>
-    '''
 
 @app.route("/logout")
 # @login_required
