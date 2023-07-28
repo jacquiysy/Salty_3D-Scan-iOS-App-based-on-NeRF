@@ -212,10 +212,14 @@ def load_user(user_id):
 
 # Route for logging in
 
+# Create a new user object with the username 'admin'
+admin = User(username='admin', email='admin@example.com')
+admin.set_password('admin')
 
-# user = User.query.filter_by(email = form.email.data).first()
-#         if user is not None and user.check_password(form.password.data):
-#             login_user(user)
+# Add the new user to the database
+db.session.add(admin)
+db.session.commit()
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -250,10 +254,10 @@ def register():
         password = request.form['password']
 
         # Check if a user with the entered username or email already exists
-        user = User.query.filter((User.username == username) | (User.email == email)).first()
-        if user:
-            # If a user with the entered username or email already exists, return an error message
-            return 'A user with that username or email already exists.'
+        # user = User.query.filter((User.username == username) | (User.email == email)).first()
+        # if user:
+        #     # If a user with the entered username or email already exists, return an error message
+        #     return 'A user with that username or email already exists.'
 
         # Create a new user object
         user = User(username=username, email=email)
