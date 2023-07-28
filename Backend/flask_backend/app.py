@@ -105,6 +105,16 @@ def launch(filename):
     if filename!= dir_name:
 #        old_input_dir_file = os.path.join(app.config['INPUT_FOLDER'], dir_name)
         os.rename(old_input_dir_file, input_dir_file)
+    
+    #Make dir and copy cover image
+    output_dir_name = os.path.join(app.config['OUTPUT_FOLDER'], filename)
+    if os.path.exists(output_dir_name):
+        shutil.rmtree(output_dir_name)
+    os.mkdir(output_dir_name)
+
+    source_image = os.path.join(input_dir_file,"images/0.png")
+    target_image = os.path.join(output_dir_name,filename +".png")
+    shutil.copy(source_image, target_image)
 
     with open("./docker-compose.yml","r") as f:
         template = f.read()
@@ -148,7 +158,7 @@ def list_upload_dir():
 def search(filename):
     filenames = []
     keyword = request.form.get('filename')
-    if filename is None:
+    if filename is None
         keyword = ""
     for file in os.listdir(OUTPUT_PATH):
         if keyword in file:
