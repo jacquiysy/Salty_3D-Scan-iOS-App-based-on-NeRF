@@ -96,7 +96,7 @@ func RegisterToServer(username: String, email: String, password: String) async -
 
     do {
         let (data, response) = try await URLSession.shared.data(for: request)
-        if let data = data, let responseString = String(data: data, encoding: .utf8) {
+        if  let responseString = String(data: data, encoding: .utf8) {
             if responseString == "register success" {
                 // Sign in successful
                 print("Register successful")
@@ -111,6 +111,7 @@ func RegisterToServer(username: String, email: String, password: String) async -
         print("Error register in: \(error)")
         return false
     }
+        return true
 }
 
 
@@ -121,7 +122,8 @@ func RegisterToServer(username: String, email: String, password: String) async -
 
     fileprivate func RegisterButton() -> some View {
         
-         Button(action: {Task{await let success= RegisterToServer(username:username,
+         Button(action: {Task{
+             let success =  await RegisterToServer(username:username,
                                             email: email,
  password:password)
             
