@@ -17,6 +17,32 @@ struct HomeView: View {
     @StateObject var dataModel = DataModel()
     
     var body: some View {
+                // NavigationView {
+
+        //         HStack {
+        //             Spacer()
+        //             if isLoggedIn {
+                        
+        //                 Text(username)
+        //                     .font(.headline)
+        //                     .padding()
+        //                 Button(action: { isLoggedIn = false }) {
+        //                     Text("Log out")
+        //                         .font(.headline)
+        //                 }
+        //             } else {
+        //                 Button(action: { isLoggedIn=LoginScreen() }) {
+        //                     Text("Log in")
+        //                         .font(.headline)
+        //                 }
+        //                 Button(action: { RegisterScreen()}) {
+        //                     Text("Registration")
+        //                         .font(.headline)
+        //                 }
+        //             }
+        //         }
+
+        // }
         NavigationView {
             
             VStack {
