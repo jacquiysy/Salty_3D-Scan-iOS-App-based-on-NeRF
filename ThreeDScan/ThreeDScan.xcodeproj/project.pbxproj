@@ -37,6 +37,8 @@
 		2AA9BB4A2A7A759E007CD407 /* FocusEntity in Frameworks */ = {isa = PBXBuildFile; productRef = 2AA9BB492A7A759E007CD407 /* FocusEntity */; };
 		2AD2844D2A643A170075262F /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD2844C2A643A170075262F /* Item.swift */; };
 		5E12CC242A658563003E5807 /* MyFavouriteImages in Resources */ = {isa = PBXBuildFile; fileRef = 5E12CC232A658563003E5807 /* MyFavouriteImages */; };
+		5E4D81402A7A934600B16DE6 /* FLAnimatedImage in Frameworks */ = {isa = PBXBuildFile; productRef = 5E4D813F2A7A934600B16DE6 /* FLAnimatedImage */; };
+		5E9F569C2A7A81500044E151 /* GifPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9F569B2A7A81500044E151 /* GifPopupView.swift */; };
 		5ED06CDC2A7A06C3009B88AF /* ImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED06CDB2A7A06C3009B88AF /* ImageViewModel.swift */; };
 		5EDDEC9E2A64D69600A19158 /* ThreeDViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDDEC9D2A64D69600A19158 /* ThreeDViewer.swift */; };
 		5EDDECA02A64D7B300A19158 /* TD_Object in Resources */ = {isa = PBXBuildFile; fileRef = 5EDDEC9F2A64D7B300A19158 /* TD_Object */; };
@@ -97,6 +99,7 @@
 		2A602C8B2A6438470005E79C /* ColumnStepper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColumnStepper.swift; sourceTree = "<group>"; };
 		2AD2844C2A643A170075262F /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		5E12CC232A658563003E5807 /* MyFavouriteImages */ = {isa = PBXFileReference; lastKnownFileType = folder; path = MyFavouriteImages; sourceTree = "<group>"; };
+		5E9F569B2A7A81500044E151 /* GifPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifPopupView.swift; sourceTree = "<group>"; };
 		5ED06CDB2A7A06C3009B88AF /* ImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewModel.swift; sourceTree = "<group>"; };
 		5EDDEC9D2A64D69600A19158 /* ThreeDViewer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreeDViewer.swift; sourceTree = "<group>"; };
 		5EDDEC9F2A64D7B300A19158 /* TD_Object */ = {isa = PBXFileReference; lastKnownFileType = folder; path = TD_Object; sourceTree = "<group>"; };
@@ -121,6 +124,7 @@
 			files = (
 				2AA9BB4A2A7A759E007CD407 /* FocusEntity in Frameworks */,
 				0539EAB429654B0400C51AB9 /* cyclonedds in Frameworks */,
+				5E4D81402A7A934600B16DE6 /* FLAnimatedImage in Frameworks */,
 				0539EAB12965458E00C51AB9 /* Zip in Frameworks */,
 				11D002922A79F74900E59E8C /* ZIPFoundation in Frameworks */,
 			);
@@ -247,6 +251,7 @@
 				5EDDEC9D2A64D69600A19158 /* ThreeDViewer.swift */,
 				2A5422DC2A7A3FD50030B077 /* LoginScreen.swift */,
 				2A5422DE2A7A4BB20030B077 /* RegisterScreen.swift */,
+				5E9F569B2A7A81500044E151 /* GifPopupView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -282,6 +287,7 @@
 				0539EAB329654B0400C51AB9 /* cyclonedds */,
 				11D002912A79F74900E59E8C /* ZIPFoundation */,
 				2AA9BB492A7A759E007CD407 /* FocusEntity */,
+				5E4D813F2A7A934600B16DE6 /* FLAnimatedImage */,
 			);
 			productName = NeRFCapture;
 			productReference = C0C52A8C287E7F940011820F /* ThreeDScan.app */;
@@ -316,6 +322,7 @@
 				0539EAB229654B0400C51AB9 /* XCRemoteSwiftPackageReference "CycloneDDSPrebuild" */,
 				11D002902A79F74800E59E8C /* XCRemoteSwiftPackageReference "ZIPFoundation" */,
 				2AA9BB482A7A759E007CD407 /* XCRemoteSwiftPackageReference "FocusEntity" */,
+				5E4D813E2A7A934600B16DE6 /* XCRemoteSwiftPackageReference "FLAnimatedImage" */,
 			);
 			productRefGroup = C0C52A8D287E7F940011820F /* Products */;
 			projectDirPath = "";
@@ -356,6 +363,7 @@
 				5ED06CDC2A7A06C3009B88AF /* ImageViewModel.swift in Sources */,
 				C0C52A92287E7F940011820F /* ContentView.swift in Sources */,
 				5EDDEC9E2A64D69600A19158 /* ThreeDViewer.swift in Sources */,
+				5E9F569C2A7A81500044E151 /* GifPopupView.swift in Sources */,
 				2AD2844D2A643A170075262F /* Item.swift in Sources */,
 				2A602C8C2A6438470005E79C /* ColumnStepper.swift in Sources */,
 				C0C52AAE287EC33D0011820F /* AppState.swift in Sources */,
@@ -512,7 +520,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NeRFCapture/Preview Content\"";
-				DEVELOPMENT_TEAM = S4U4AG633L;
+				DEVELOPMENT_TEAM = 6SDQNSSGHH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NeRFCapture/Info.plist;
@@ -532,7 +540,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 2.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "TDScan-test";
+				PRODUCT_BUNDLE_IDENTIFIER = TDScan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -554,7 +562,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NeRFCapture/Preview Content\"";
-				DEVELOPMENT_TEAM = S4U4AG633L;
+				DEVELOPMENT_TEAM = 6SDQNSSGHH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NeRFCapture/Info.plist;
@@ -574,7 +582,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 2.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "TDScan-test";
+				PRODUCT_BUNDLE_IDENTIFIER = TDScan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -643,6 +651,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		5E4D813E2A7A934600B16DE6 /* XCRemoteSwiftPackageReference "FLAnimatedImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Flipboard/FLAnimatedImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -665,6 +681,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2AA9BB482A7A759E007CD407 /* XCRemoteSwiftPackageReference "FocusEntity" */;
 			productName = FocusEntity;
+		};
+		5E4D813F2A7A934600B16DE6 /* FLAnimatedImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5E4D813E2A7A934600B16DE6 /* XCRemoteSwiftPackageReference "FLAnimatedImage" */;
+			productName = FLAnimatedImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

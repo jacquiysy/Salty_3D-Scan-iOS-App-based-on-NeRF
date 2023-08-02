@@ -104,7 +104,7 @@ struct LoginScreen: View {
 
     do {
         let (data, response) = try await URLSession.shared.data(for: request)
-        if let data = data, let responseString = String(data: data, encoding: .utf8) {
+        if  let responseString = String(data: data, encoding: .utf8) {
             if responseString == "login success" {
                 // Sign in successful
                 print("Sign in successful")
@@ -119,7 +119,9 @@ struct LoginScreen: View {
         print("Error signing in: \(error)")
         return false
     }
+        return true
 }
+    
 
      fileprivate func PasswordInput() -> some View {
         SecureField("Password", text: $password)
@@ -128,7 +130,8 @@ struct LoginScreen: View {
 
     fileprivate func LoginButton() -> some View {
         
-        Button(action: {Task{await let success= SigninToServer(username:username,
+        Button(action: { Task{
+            let success = await SigninToServer(username:username,
                                             email: email,
                                             password:password)
             if true {

@@ -18,6 +18,7 @@ class Model {
     
     init(modelName: String) {
         self.name = modelName
+        print(modelName)
         
         self.image = UIImage(named: modelName)!
         
