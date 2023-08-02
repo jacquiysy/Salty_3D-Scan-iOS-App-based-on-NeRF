@@ -38,22 +38,31 @@ struct HomeView: View {
                         Button(action: {
                             showingLoginScreen=true
                             // LoginScreen()
-                            isLoggedIn = true
+
                         }) {
                             Text("Log in")
                                 .font(.headline)
-                        }.sheet(isPresented: $showingLoginScreen){LoginScreen() }.padding(.leading, 20)
+                        }.sheet(isPresented: $showingLoginScreen){
+                            LoginScreen(onCompletion: { success in
+                            isLoggedIn = success
+                        })
+                            }.padding(.leading, 20)
                         
                         Spacer()
                         
                         Button(action: {
                             showingRegisterScreen=true
                             // RegisterScreen()
-                            isLoggedIn = true
+
                         }) {
                             Text("Register")
                                 .font(.headline)
-                        }.sheet(isPresented: $showingRegisterScreen){RegisterScreen()   }.padding(.trailing, 20)
+                        }.sheet(isPresented: $showingRegisterScreen)
+                        {
+                            RegisterScreen(onCompletion: { success in
+                            isLoggedIn = success
+                        })
+                        }.padding(.trailing, 20)
                     }
                 }.padding(.bottom, 120.0)
                     .padding(.top, -120.0)
