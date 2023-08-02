@@ -8,6 +8,7 @@
 import SwiftUI
 import ARKit
 import RealityKit
+import Zip
 
 struct ContentView : View {
     @StateObject private var viewModel: ARViewModel
@@ -263,7 +264,7 @@ struct GenerateModelView: View {
     
     
     func performGetRequest() {
-        guard let url = URL(string: viewModel.datasetWriter.baseURL + "launch/" + modelName) else {
+        guard let url = URL(string: viewModel.datasetWriter.baseURL + "launchs/" + modelName) else {
             print("Invalid URL")
             NotificationCenter.default.post(name: NSNotification.Name("Generating finished"), object:nil)
             return
@@ -330,12 +331,10 @@ struct DownloadModelView: View {
     
     
     func performGetRequest() {
-        guard let url = URL(string: viewModel.datasetWriter.baseURL + "download/" + modelName + ".obj") else {
+        guard let url = URL(string: viewModel.datasetWriter.baseURL + "download/" + "fox" + ".zip") else {
             print("Invalid URL")
             return
         }
-        print(url)
-        print(modelName)
         
         URLSession.shared.dataTask(with: url) { data, response, error in
             if let error = error {
@@ -357,17 +356,30 @@ struct DownloadModelView: View {
     // Function to save the .obj file locally
     func saveOBJFile(data: Data) {
         // Specify the file name and file URL for saving the .obj file
-        let fileName = modelName + ".obj"
+        let fileName = "fox" + ".zip"
+        
+        let  fileManager = FileManager()
         
         guard let fileURL = getDocumentsDirectory()?.appendingPathComponent(fileName) else {
             print("Failed to create file URL")
             return
         }
         
+        guard let tmpFileURL = getDocumentsDirectory()?.appendingPathComponent("fox").appendingPathComponent("/").appendingPathComponent("fox") else {
+            print("Failed to create file URL")
+            return
+        }
+        
+        
+        
+        
         do {
             // Write the data to the file URL
             try data.write(to: fileURL)
-            
+            print(fileURL)
+            try Zip.unzipFile(tmpFileURL, destination: .documentsDirectory, overwrite:true, password: "")
+            try fileManager.moveItem(at:tmpFileURL, to: .documentsDirectory)
+            try fileManager.removeItem(at: .documentsDirectory.appendingPathComponent("fox"))
             print("File saved at: \(fileURL)")
         } catch {
             print("Error while saving file: \(error.localizedDescription)")
