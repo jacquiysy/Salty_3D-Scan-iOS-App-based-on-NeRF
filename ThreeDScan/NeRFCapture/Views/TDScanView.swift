@@ -10,8 +10,6 @@ import SwiftUI
 struct TDScanView: View {
     @State private var tabSelection = 1
     @StateObject var dataModel = DataModel()
-    // @State private var isLoggedIn = false
-    // @State private var username = "User"
     var body: some View {
 
        

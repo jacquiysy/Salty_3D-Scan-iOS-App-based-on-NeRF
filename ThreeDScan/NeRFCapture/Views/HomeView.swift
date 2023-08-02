@@ -17,6 +17,8 @@ struct HomeView: View {
     @StateObject var dataModel = DataModel()
     @State private var isLoggedIn = false
     @State private var username = "User"
+    @State private var showingLoginScreen=false
+    @State private var showingRegisterScreen=false
     var body: some View {
         NavigationView {
             VStack (alignment: .center, spacing: 20){
@@ -33,20 +35,23 @@ struct HomeView: View {
                     }
                 } else {
                     Button(action: {
-                        //                       isLoggedIn=LoginScreen()
+                        showingLoginScreen=true
+//                                               LoginScreen()
                         
                         
                     }) {
                         Text("Log in")
                             .font(.headline)
-                    }
+                    }.sheet(isPresented: $showingLoginScreen){LoginScreen()}
                     Button(action: {
-                        //                       RegisterScreen()
+                        showingRegisterScreen=true
+
+//                                               RegisterScreen()
                         
                     }) {
                         Text("Registration")
                             .font(.headline)
-                    }
+                    }.sheet(isPresented: $showingRegisterScreen){RegisterScreen()}
                 }
                 
                 
