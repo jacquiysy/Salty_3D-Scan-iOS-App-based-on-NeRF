@@ -10,6 +10,8 @@ import SwiftUI
 import RealityKit
 import ARKit
 import FocusEntity
+import SceneKit
+import Foundation
 
 struct ArView: View {
     @State private var isPlacementEnabled = false
@@ -19,29 +21,40 @@ struct ArView: View {
     var models: [Model] = getModelFilenames()
     
     var body: some View {
-        ZStack(alignment: .bottom) {
-            ARPlacementContainer(modelConfirmedForPlacement: $modelConfirmedForPlacement)
-            
-            if isPlacementEnabled {
-                PlacementButtonView(
-                    isPlacementEnabled: $isPlacementEnabled,
-                    selectedModel: $selectedModel,
-                    modelConfirmedForPlacement: $modelConfirmedForPlacement
-                )
-            } else {
-                ModelPickerView(isPlacementEnabled: $isPlacementEnabled, selectedModel: $selectedModel, models: models)
+        GeometryReader {geometry in
+            ZStack(alignment: .bottom) {
+                ARPlacementContainer(modelConfirmedForPlacement: $modelConfirmedForPlacement)
+                
+                if isPlacementEnabled {
+                    PlacementButtonView(
+                        isPlacementEnabled: $isPlacementEnabled,
+                        selectedModel: $selectedModel,
+                        modelConfirmedForPlacement: $modelConfirmedForPlacement
+                    )
+                } else {
+                    ModelPickerView(isPlacementEnabled: $isPlacementEnabled, selectedModel: $selectedModel, models: models)
+                }
             }
+            .frame(width: geometry.size.width, height: geometry.size.height - 30)
         }
     }
 }
 
 func getModelFilenames() -> [Model] {
-        // Dynamically get our model filenames
-        let fileManager = FileManager.default
-        
-        guard let path = Bundle.main.resourcePath, let files = try? fileManager.contentsOfDirectory(atPath: path) else {
+        guard let bundlePath = Bundle.main.path(forResource: "3DModels", ofType: nil) else {
             return []
         }
+        // Dynamically get our model filenames
+        let fileManager = FileManager.default
+        let path = getDocumentsDirectory()
+        print(path)
+        
+        guard let files = try? fileManager.contentsOfDirectory(atPath: bundlePath) else {
+            return []
+        }
+    
+    
+        print(files)
         
         var availableModels: [Model] = []
         for filename in files where filename.hasSuffix("usdz") {

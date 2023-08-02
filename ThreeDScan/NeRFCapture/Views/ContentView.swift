@@ -11,7 +11,7 @@ import RealityKit
 import Zip
 
 struct ContentView : View {
-    @StateObject private var viewModel: ARViewModel
+    @ObservedObject private var viewModel: ARViewModel
     @State private var showSheet: Bool = false
     @State private var showNameEntry = false
     @State private var showGenerateModel = false
@@ -20,7 +20,7 @@ struct ContentView : View {
     @State private var enteredName = ""
     
     init(viewModel vm: ARViewModel) {
-        _viewModel = StateObject(wrappedValue: vm)
+        _viewModel = ObservedObject(wrappedValue: vm)
     }
     
     var body: some View {
@@ -93,6 +93,11 @@ struct ContentView : View {
                                             Text("Enough views to train a model. You can also take an extra round.")
                                         }
                                     }
+                                }
+                                
+                                if viewModel.isMovingTooFast {
+                                    Text("Moving too fast!")
+                                        .foregroundColor(.red)
                                 }
                                 
                                 if viewModel.appState.supportsDepth {
@@ -331,7 +336,7 @@ struct DownloadModelView: View {
     
     
     func performGetRequest() {
-        guard let url = URL(string: viewModel.datasetWriter.baseURL + "download/" + "fox" + ".zip") else {
+        guard let url = URL(string: viewModel.datasetWriter.baseURL + "download/" + modelName + ".zip") else {
             print("Invalid URL")
             return
         }
@@ -356,7 +361,7 @@ struct DownloadModelView: View {
     // Function to save the .obj file locally
     func saveOBJFile(data: Data) {
         // Specify the file name and file URL for saving the .obj file
-        let fileName = "fox" + ".zip"
+        let fileName = modelName + ".zip"
         
         let  fileManager = FileManager()
         
@@ -365,7 +370,7 @@ struct DownloadModelView: View {
             return
         }
         
-        guard let tmpFileURL = getDocumentsDirectory()?.appendingPathComponent("fox").appendingPathComponent("/").appendingPathComponent("fox") else {
+        guard let tmpFileURL = getDocumentsDirectory()?.appendingPathComponent(modelName).appendingPathComponent("/").appendingPathComponent(modelName) else {
             print("Failed to create file URL")
             return
         }
@@ -377,9 +382,7 @@ struct DownloadModelView: View {
             // Write the data to the file URL
             try data.write(to: fileURL)
             print(fileURL)
-            try Zip.unzipFile(tmpFileURL, destination: .documentsDirectory, overwrite:true, password: "")
-            try fileManager.moveItem(at:tmpFileURL, to: .documentsDirectory)
-            try fileManager.removeItem(at: .documentsDirectory.appendingPathComponent("fox"))
+            try Zip.unzipFile(fileURL, destination: .documentsDirectory, overwrite:true, password: "")
             print("File saved at: \(fileURL)")
         } catch {
             print("Error while saving file: \(error.localizedDescription)")
