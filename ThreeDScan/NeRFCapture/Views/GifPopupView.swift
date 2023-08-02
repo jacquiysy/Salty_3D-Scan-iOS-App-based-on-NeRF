@@ -6,51 +6,108 @@
 //
 
 import SwiftUI
-import WebKit
+import FLAnimatedImage
 
-struct WebView: UIViewRepresentable {
-    let data: Data
-    
-    func makeUIView(context: Context) -> WKWebView {
-        let webView = WKWebView()
-        webView.scrollView.isScrollEnabled = false
-        return webView
+enum URLType {
+
+  case name(String)
+  case url(URL)
+
+  var url: URL? {
+    switch self {
+      case .name(let name):
+        return Bundle.main.url(forResource: name, withExtension: "GIF")
+      case .url(let remoteURL):
+        return remoteURL
     }
+
+  }
+
+}
+struct GIFView: UIViewRepresentable {
+
+    private var type: URLType
     
-    func updateUIView(_ uiView: WKWebView, context: Context) {
-        uiView.loadHTMLString("<html><body style='background:transparent;'>< img src='data:image/gif;base64,\(data.base64EncodedString())' style='width:100%;height:auto;margin:0 auto;'/></body></html>", baseURL: nil)
+    init(type: URLType) {
+        self.type = type
     }
+
+    func makeUIView(context: Context) -> UIView {
+      let view = UIView(frame: .zero)
+
+      view.addSubview(activityIndicator)
+      view.addSubview(imageView)
+
+      imageView.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
+      imageView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+
+      activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+      activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+
+      return view
+    }
+
+    
+    func updateUIView(_ uiView: UIView, context: Context) {
+
+      activityIndicator.startAnimating()
+
+      guard let url = type.url else { return }
+
+      DispatchQueue.global().async {
+        if let data = try? Data(contentsOf: url) {
+          let image = FLAnimatedImage(animatedGIFData: data)
+
+          DispatchQueue.main.async {
+            activityIndicator.stopAnimating()
+            imageView.animatedImage = image
+          }
+        }
+      }
+    }
+
+    private let imageView: FLAnimatedImageView = {
+
+        let imageView = FLAnimatedImageView()
+
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+
+        // UNCOMMENT TO ADD ROUNDING TO YOUR VIEW
+//      imageView.layer.cornerRadius = 24
+
+        imageView.layer.masksToBounds = true
+        return imageView
+
+    }()
+
+    private let activityIndicator: UIActivityIndicatorView = {
+
+        let activityIndicator = UIActivityIndicatorView()
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        activityIndicator.color = .systemBlue
+        return activityIndicator
+    }()
+
 }
 
 
 struct GifPopupView: View {
     var gifData: Data
-    @State var showShareSheet = false
+    var modelName: String
 
     var body: some View {
         VStack {
-            Image(uiImage: UIImage(data: gifData)!)
-                .resizable()
-                .scaledToFit()
-                .frame(width: 500, height: 500)
-//                .animated()
-            
-//            WebView(data: gifData)
-            Button("Share GIF") {
-                shareGIF()
+            //            Image(uiImage: UIImage(data: gifData)!)
+            //                .resizable()
+            //                .scaledToFit()
+            //                .frame(width: 500, height: 500)
+                GIFView(type: .url(URL(string: "http://10.0.6.82:8080/download/" + (modelName as NSString).deletingPathExtension + ".gif")!))
+                Button("Share GIF") {
+                    shareGIF()
+                }
+                .padding()
             }
-            .padding()
-//            Button(action: {
-//                self.showShareSheet = true
-//            }) {
-//                Text("Share")
-//            }
-//            .sheet(isPresented: $showShareSheet) {
-//                ActivityViewController(activityItems: [gifData])
-//            }
-
         }
-    }
 
     func shareGIF() {
         let temporaryDirectoryURL = FileManager.default.temporaryDirectory

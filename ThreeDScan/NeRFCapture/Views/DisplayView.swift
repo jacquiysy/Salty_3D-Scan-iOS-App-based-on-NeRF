@@ -41,7 +41,7 @@ struct DestinationView: View {
                 Text("Downloading Gif")
             } else {
                 if let gifData = gifData {
-                    GifPopupView(gifData: gifData)
+                    GifPopupView(gifData: gifData, modelName: modelName)
                 }
             }
         }
