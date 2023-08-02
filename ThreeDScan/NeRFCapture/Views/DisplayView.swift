@@ -12,26 +12,59 @@ import UIKit
 
 struct DestinationView: View {
     let modelName: String
+    
+    @State private var isShowingPopup = false
+    @State private var pressedDownload = false
+    @State private var gifData: Data?
+    
     var body: some View {
-        VStack{
-            ThreeDViewer(product:modelName).frame(width: UIScreen.main.bounds.width)
-            HStack(alignment: .center, spacing: 55) {
-                Button(action: shareGIF) {
-                    Image(systemName: "square.and.arrow.up")
-                        .foregroundColor(.black);
-                    Text("Share gif")
+        if !pressedDownload {
+            VStack{
+                ThreeDViewer(product:modelName).frame(width: UIScreen.main.bounds.width)
+                HStack(alignment: .center, spacing: 50) {
+                    Button("Download gif") {
+                        pressedDownload = true
+                        downloadGIF()
+                    }
+                    //                .sheet(isPresented: $isShowingPopup) {
+                    //                    if let gifData = gifData {
+                    //                        GifPopupView(gifData: gifData)
+                    //                    }
+                    //                }
+                    Button("Share model") {
+                        shareButton()
+                    }
                 }
-                Button(action: shareButton) {
-                    Image(systemName: "square.and.arrow.up")
-                        .foregroundColor(.black);
-                    Text("Share model")
+            }
+        } else {
+            if !isShowingPopup {
+                Text("Downloading Gif")
+            } else {
+                if let gifData = gifData {
+                    GifPopupView(gifData: gifData)
                 }
             }
         }
     }
     
-    func shareGIF(){
-        
+    func downloadGIF(){
+        guard let gifURL = URL(string: "http://10.0.6.82:8080/download/" + (modelName as NSString).deletingPathExtension + ".gif") else {
+                    print("Invalid URL")
+                    return
+                }
+
+                URLSession.shared.dataTask(with: gifURL) { data, response, error in
+                    guard let data = data, error == nil else {
+                        print("Error downloading GIF:", error?.localizedDescription ?? "")
+                        return
+                    }
+
+                    DispatchQueue.main.async {
+                        print("Finishing Download gif file.")
+                        gifData = data
+                        isShowingPopup = true
+                    }
+                }.resume()
     }
     
     func shareButton() {
@@ -40,7 +73,7 @@ struct DestinationView: View {
         
         let scenes = UIApplication.shared.connectedScenes
         let windowScene = scenes.first as? UIWindowScene
-        let window = windowScene?.windows.first
+        _ = windowScene?.windows.first
         
         windowScene?.windows.first?.rootViewController!.present(activityController, animated: true, completion: nil)
     }
