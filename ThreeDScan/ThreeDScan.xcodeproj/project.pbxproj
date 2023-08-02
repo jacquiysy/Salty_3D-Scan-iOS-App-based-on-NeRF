@@ -14,6 +14,7 @@
 		0539EAB12965458E00C51AB9 /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = 0539EAB02965458E00C51AB9 /* Zip */; };
 		0539EAB429654B0400C51AB9 /* cyclonedds in Frameworks */ = {isa = PBXBuildFile; productRef = 0539EAB329654B0400C51AB9 /* cyclonedds */; };
 		057A7AA82950092E000692A0 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 057A7AA72950092E000692A0 /* Shaders.metal */; };
+		11D002922A79F74900E59E8C /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 11D002912A79F74900E59E8C /* ZIPFoundation */; };
 		2A602C7D2A64372F0005E79C /* FileManagerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A602C732A64372F0005E79C /* FileManagerExtensions.swift */; };
 		2A602C7E2A64372F0005E79C /* GridItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A602C742A64372F0005E79C /* GridItemView.swift */; };
 		2A602C7F2A64372F0005E79C /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A602C752A64372F0005E79C /* DataModel.swift */; };
@@ -103,6 +104,7 @@
 			files = (
 				0539EAB429654B0400C51AB9 /* cyclonedds in Frameworks */,
 				0539EAB12965458E00C51AB9 /* Zip in Frameworks */,
+				11D002922A79F74900E59E8C /* ZIPFoundation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,6 +254,7 @@
 			packageProductDependencies = (
 				0539EAB02965458E00C51AB9 /* Zip */,
 				0539EAB329654B0400C51AB9 /* cyclonedds */,
+				11D002912A79F74900E59E8C /* ZIPFoundation */,
 			);
 			productName = NeRFCapture;
 			productReference = C0C52A8C287E7F940011820F /* ThreeDScan.app */;
@@ -284,6 +287,7 @@
 			packageReferences = (
 				0539EAAF2965458E00C51AB9 /* XCRemoteSwiftPackageReference "Zip" */,
 				0539EAB229654B0400C51AB9 /* XCRemoteSwiftPackageReference "CycloneDDSPrebuild" */,
+				11D002902A79F74800E59E8C /* XCRemoteSwiftPackageReference "ZIPFoundation" */,
 			);
 			productRefGroup = C0C52A8D287E7F940011820F /* Products */;
 			projectDirPath = "";
@@ -472,7 +476,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NeRFCapture/Preview Content\"";
-				DEVELOPMENT_TEAM = 6SDQNSSGHH;
+				DEVELOPMENT_TEAM = S4U4AG633L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NeRFCapture/Info.plist;
@@ -514,7 +518,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NeRFCapture/Preview Content\"";
-				DEVELOPMENT_TEAM = 6SDQNSSGHH;
+				DEVELOPMENT_TEAM = S4U4AG633L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NeRFCapture/Info.plist;
@@ -587,6 +591,14 @@
 				kind = branch;
 			};
 		};
+		11D002902A79F74800E59E8C /* XCRemoteSwiftPackageReference "ZIPFoundation" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/weichsel/ZIPFoundation";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.16;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -599,6 +611,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0539EAB229654B0400C51AB9 /* XCRemoteSwiftPackageReference "CycloneDDSPrebuild" */;
 			productName = cyclonedds;
+		};
+		11D002912A79F74900E59E8C /* ZIPFoundation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 11D002902A79F74800E59E8C /* XCRemoteSwiftPackageReference "ZIPFoundation" */;
+			productName = ZIPFoundation;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
