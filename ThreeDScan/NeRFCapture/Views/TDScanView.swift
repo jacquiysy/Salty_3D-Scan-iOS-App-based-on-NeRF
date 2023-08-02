@@ -10,6 +10,8 @@ import SwiftUI
 struct TDScanView: View {
     @State private var tabSelection = 1
     @StateObject var dataModel = DataModel()
+    @StateObject var imageViewModel = ImageViewModel()
+    @State var gridTabSelection = 5
        
     var body: some View {
        
@@ -35,9 +37,10 @@ struct TDScanView: View {
                     Text("Display")
                 }.tag(4)
                 NavigationStack {
-                    GridView().navigationBarItems(leading: Button("Back") {action: do { self.tabSelection = 1 }})
+                    GridView(tabSelection: $gridTabSelection).navigationBarItems(leading: Button("Back") {action: do { self.tabSelection = 1 }})
                 }
                 .environmentObject(dataModel)
+                .environmentObject(imageViewModel)
                 .navigationViewStyle(.stack)
                 .tabItem(){
                     Text("Gallery")
