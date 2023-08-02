@@ -21,11 +21,12 @@ struct HomeView: View {
     @State private var showingRegisterScreen=false
     var body: some View {
         NavigationView {
-                
             VStack {
-                
                 HStack (alignment: .top, spacing: 10){
+                    //            VStack{
+        //            Spacer()
                     if isLoggedIn {
+                        
                         Text(username)
                             .font(.headline)
                             .padding()
@@ -36,34 +37,44 @@ struct HomeView: View {
                     } else {
                         Button(action: {
                             showingLoginScreen=true
-                            //                                               LoginScreen()
-                            isLoggedIn = true
+                            // LoginScreen()
+
                         }) {
                             Text("Log in")
                                 .font(.headline)
-                        }.sheet(isPresented: $showingLoginScreen){LoginScreen() }.padding(.leading, 20)
+                        }.sheet(isPresented: $showingLoginScreen){
+                            LoginScreen(onCompletion: { success in
+                            isLoggedIn = success
+                        })
+                            }.padding(.leading, 20)
+                        
                         Spacer()
+                        
                         Button(action: {
                             showingRegisterScreen=true
-                            //                                               RegisterScreen()
-                            isLoggedIn = true
+                            // RegisterScreen()
+
                         }) {
                             Text("Register")
                                 .font(.headline)
-                        }.sheet(isPresented: $showingRegisterScreen){RegisterScreen()   }
-                            .padding(.trailing, 20)
+                        }.sheet(isPresented: $showingRegisterScreen)
+                        {
+                            RegisterScreen(onCompletion: { success in
+                            isLoggedIn = success
+                        })
+                        }.padding(.trailing, 20)
                     }
-                }.padding(.bottom, 70).padding(.top, -60)
+                }.padding(.bottom, 120.0)
+                    .padding(.top, -120.0)
                 
                 Text("Home")
                     .font(.largeTitle)
                     .fontWeight(.bold)
-                    .padding(.bottom, 40.0)
+                    .padding(.bottom, 60.0)
                 Button(action: { self.tabSelection = 2 }) {
                     Text("Scan")
                         .font(.largeTitle)
                         .padding(.bottom)
-                    
                 }
                 Button(action: { self.tabSelection = 3 }) {
                     Text("AR")

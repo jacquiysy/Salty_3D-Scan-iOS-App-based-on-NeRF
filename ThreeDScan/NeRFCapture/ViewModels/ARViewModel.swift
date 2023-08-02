@@ -10,6 +10,7 @@ import Zip
 import Combine
 import ARKit
 import RealityKit
+import CoreMotion
 
 enum AppError : Error {
     case projectAlreadyExists
@@ -17,6 +18,10 @@ enum AppError : Error {
 }
 
 class ARViewModel : NSObject, ARSessionDelegate, ObservableObject {
+    private var motionManager: CMMotionManager
+    private var lastAcceleration: CMAcceleration?
+
+    @Published var isMovingTooFast: Bool = false
     @Published var appState = AppState()
     var session: ARSession? = nil
     var arView: ARView? = nil
@@ -26,11 +31,41 @@ class ARViewModel : NSObject, ARSessionDelegate, ObservableObject {
     let ddsWriter: DDSWriter
     
     init(datasetWriter: DatasetWriter, ddsWriter: DDSWriter) {
+        motionManager = CMMotionManager()
         self.datasetWriter = datasetWriter
         self.ddsWriter = ddsWriter
         super.init()
+        startMonitoringMotion()
         self.setupObservers()
         self.ddsWriter.setupDDS()
+
+
+    }
+    
+    
+    private func startMonitoringMotion() {
+        if motionManager.isAccelerometerAvailable {
+            motionManager.accelerometerUpdateInterval = 0.1
+            motionManager.startAccelerometerUpdates(to: OperationQueue.current!) { [weak self] (accelerometerData, error) in
+                guard let acceleration = accelerometerData?.acceleration else { return }
+                self?.checkMovementSpeed(acceleration: acceleration)
+            }
+        }
+    }
+
+    private func checkMovementSpeed(acceleration: CMAcceleration) {
+        if let lastAcceleration = lastAcceleration {
+            let speed = sqrt(pow(acceleration.x - lastAcceleration.x, 2) +
+                             pow(acceleration.y - lastAcceleration.y, 2) +
+                             pow(acceleration.z - lastAcceleration.z, 2))
+            if speed > 0.5 { // Adjust this threshold as needed
+                // print("Movement too fast!")
+                isMovingTooFast = true
+            } else {
+                isMovingTooFast = false
+            }
+        }
+        lastAcceleration = acceleration
     }
     
     func setupObservers() {
