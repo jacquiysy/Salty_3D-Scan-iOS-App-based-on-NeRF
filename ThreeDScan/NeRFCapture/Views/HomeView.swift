@@ -38,20 +38,20 @@ struct HomeView: View {
                         showingLoginScreen=true
 //                                               LoginScreen()
                         
-                        
+                        isLoggedIn = true
                     }) {
                         Text("Log in")
                             .font(.headline)
-                    }.sheet(isPresented: $showingLoginScreen){LoginScreen() isLoggedIn = true}
+                    }.sheet(isPresented: $showingLoginScreen){LoginScreen() }
                     Button(action: {
                         showingRegisterScreen=true
 
 //                                               RegisterScreen()
-                        
+                        isLoggedIn = true 
                     }) {
                         Text("Registration")
                             .font(.headline)
-                    }.sheet(isPresented: $showingRegisterScreen){RegisterScreen()  isLoggedIn = true  }
+                    }.sheet(isPresented: $showingRegisterScreen){RegisterScreen()   }
                 }
                 
                 
