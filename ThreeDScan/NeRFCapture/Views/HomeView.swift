@@ -29,11 +29,11 @@ struct HomeView: View {
                         
                         Text(username)
                             .font(.headline)
-                            .padding(.bottom, 120.0)
+                            .padding(.leading, 20.0)
                         Button(action: { isLoggedIn = false }) {
                             Text("Log out")
                                 .font(.headline)
-                                .padding(.top, -120.0)
+                                .padding(.trailing, 20)
                         }
                         
                     } else {
