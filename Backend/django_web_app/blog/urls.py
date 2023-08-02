@@ -8,7 +8,8 @@ from .views import (
     UserPostListView,
     post_title, 
     post_content, 
-    post_file
+    post_file,
+    create_post
 )
 from . import views
 
@@ -26,4 +27,5 @@ urlpatterns = [
     path('post/<int:pk>/title/', post_title, name='post_title'),
     path('post/<int:pk>/content/', post_content, name='post_content'),
     path('post/<int:pk>/file/', post_file, name='post_file'),
+    path('create_post/', create_post, name='create_post'),
 ]

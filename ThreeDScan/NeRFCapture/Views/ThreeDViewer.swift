@@ -18,7 +18,15 @@ struct ThreeDViewer: UIViewRepresentable {
         view.allowsCameraControl = true
         view.autoenablesDefaultLighting = true
         view.antialiasingMode = .multisampling2X
-        view.scene = SCNScene(named: "TD_Object/" + product)
+        if product.hasSuffix("obj") {
+            do {
+                let fullPath = URL(filePath: getDocumentsDirectory().appendingPathComponent(product).path)
+                view.scene = try SCNScene(url: fullPath, options: nil)
+            } catch {}
+
+        } else {
+            view.scene = SCNScene(named: "TD_Object/" + product)
+        }
         view.backgroundColor = .clear
         return view
     }

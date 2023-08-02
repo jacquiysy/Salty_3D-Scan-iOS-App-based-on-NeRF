@@ -2,8 +2,6 @@
 //  DatasetWriter.swift
 //  NeRFCapture
 //
-//  Created by Jad Abou-Chakra on 11/1/2023.
-//
 
 import Foundation
 import ARKit

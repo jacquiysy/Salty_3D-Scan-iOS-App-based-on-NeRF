@@ -14,6 +14,9 @@
 		0539EAB12965458E00C51AB9 /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = 0539EAB02965458E00C51AB9 /* Zip */; };
 		0539EAB429654B0400C51AB9 /* cyclonedds in Frameworks */ = {isa = PBXBuildFile; productRef = 0539EAB329654B0400C51AB9 /* cyclonedds */; };
 		057A7AA82950092E000692A0 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 057A7AA72950092E000692A0 /* Shaders.metal */; };
+		11D002922A79F74900E59E8C /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 11D002912A79F74900E59E8C /* ZIPFoundation */; };
+		2A5422DD2A7A3FD50030B077 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5422DC2A7A3FD50030B077 /* LoginScreen.swift */; };
+		2A5422DF2A7A4BB20030B077 /* RegisterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5422DE2A7A4BB20030B077 /* RegisterScreen.swift */; };
 		2A602C7D2A64372F0005E79C /* FileManagerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A602C732A64372F0005E79C /* FileManagerExtensions.swift */; };
 		2A602C7E2A64372F0005E79C /* GridItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A602C742A64372F0005E79C /* GridItemView.swift */; };
 		2A602C7F2A64372F0005E79C /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A602C752A64372F0005E79C /* DataModel.swift */; };
@@ -66,6 +69,8 @@
 		0512301E29499F50003915D9 /* NeRFCaptureData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NeRFCaptureData.h; sourceTree = "<group>"; };
 		052D2374287FD53A0083DC5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		057A7AA72950092E000692A0 /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
+		2A5422DC2A7A3FD50030B077 /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
+		2A5422DE2A7A4BB20030B077 /* RegisterScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterScreen.swift; sourceTree = "<group>"; };
 		2A602C732A64372F0005E79C /* FileManagerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileManagerExtensions.swift; sourceTree = "<group>"; };
 		2A602C742A64372F0005E79C /* GridItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridItemView.swift; sourceTree = "<group>"; };
 		2A602C752A64372F0005E79C /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
@@ -105,6 +110,7 @@
 			files = (
 				0539EAB429654B0400C51AB9 /* cyclonedds in Frameworks */,
 				0539EAB12965458E00C51AB9 /* Zip in Frameworks */,
+				11D002922A79F74900E59E8C /* ZIPFoundation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,6 +228,8 @@
 				C0C52A91287E7F940011820F /* ContentView.swift */,
 				C0C52AA9287EC2470011820F /* ARViewContainer.swift */,
 				5EDDEC9D2A64D69600A19158 /* ThreeDViewer.swift */,
+				2A5422DC2A7A3FD50030B077 /* LoginScreen.swift */,
+				2A5422DE2A7A4BB20030B077 /* RegisterScreen.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -255,6 +263,7 @@
 			packageProductDependencies = (
 				0539EAB02965458E00C51AB9 /* Zip */,
 				0539EAB329654B0400C51AB9 /* cyclonedds */,
+				11D002912A79F74900E59E8C /* ZIPFoundation */,
 			);
 			productName = NeRFCapture;
 			productReference = C0C52A8C287E7F940011820F /* ThreeDScan.app */;
@@ -287,6 +296,7 @@
 			packageReferences = (
 				0539EAAF2965458E00C51AB9 /* XCRemoteSwiftPackageReference "Zip" */,
 				0539EAB229654B0400C51AB9 /* XCRemoteSwiftPackageReference "CycloneDDSPrebuild" */,
+				11D002902A79F74800E59E8C /* XCRemoteSwiftPackageReference "ZIPFoundation" */,
 			);
 			productRefGroup = C0C52A8D287E7F940011820F /* Products */;
 			projectDirPath = "";
@@ -330,6 +340,7 @@
 				2A602C8A2A6437DE0005E79C /* HomeView.swift in Sources */,
 				2A602C832A64372F0005E79C /* ScanView.swift in Sources */,
 				2A602C7E2A64372F0005E79C /* GridItemView.swift in Sources */,
+				2A5422DD2A7A3FD50030B077 /* LoginScreen.swift in Sources */,
 				0512301F29499F50003915D9 /* NeRFCaptureData.c in Sources */,
 				2A602C7D2A64372F0005E79C /* FileManagerExtensions.swift in Sources */,
 				2A602C7F2A64372F0005E79C /* DataModel.swift in Sources */,
@@ -342,6 +353,7 @@
 				050A8EFC296E8B8E00C5C638 /* DDSWriter.swift in Sources */,
 				057A7AA82950092E000692A0 /* Shaders.metal in Sources */,
 				2A602C842A64372F0005E79C /* DetailView.swift in Sources */,
+				2A5422DF2A7A4BB20030B077 /* RegisterScreen.swift in Sources */,
 				C0C52AA3287EC19A0011820F /* Utils.swift in Sources */,
 				5EDDECA62A64EC0100A19158 /* TestView.swift in Sources */,
 				C0C52AA8287EC2390011820F /* ARViewModel.swift in Sources */,
@@ -476,7 +488,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NeRFCapture/Preview Content\"";
-				DEVELOPMENT_TEAM = 6SDQNSSGHH;
+				DEVELOPMENT_TEAM = S4U4AG633L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NeRFCapture/Info.plist;
@@ -518,7 +530,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NeRFCapture/Preview Content\"";
-				DEVELOPMENT_TEAM = 6SDQNSSGHH;
+				DEVELOPMENT_TEAM = S4U4AG633L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NeRFCapture/Info.plist;
@@ -591,6 +603,14 @@
 				kind = branch;
 			};
 		};
+		11D002902A79F74800E59E8C /* XCRemoteSwiftPackageReference "ZIPFoundation" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/weichsel/ZIPFoundation";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.16;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -603,6 +623,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0539EAB229654B0400C51AB9 /* XCRemoteSwiftPackageReference "CycloneDDSPrebuild" */;
 			productName = cyclonedds;
+		};
+		11D002912A79F74900E59E8C /* ZIPFoundation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 11D002902A79F74800E59E8C /* XCRemoteSwiftPackageReference "ZIPFoundation" */;
+			productName = ZIPFoundation;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
