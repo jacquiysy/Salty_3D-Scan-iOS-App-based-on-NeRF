@@ -114,24 +114,21 @@ struct GifPopupView: View {
         let fileURL = temporaryDirectoryURL.appendingPathComponent("temp.gif")
 
         do {
+            // Write the GIF data to a temporary file
             try gifData.write(to: fileURL)
-            let documentInteractionController = UIDocumentInteractionController(url: fileURL)
-            documentInteractionController.presentOptionsMenu(from: CGRect.zero, in: UIApplication.shared.windows.first?.rootViewController?.view ?? UIView(), animated: true)
+
+            // Create the UIActivityViewController
+            let activityViewController = UIActivityViewController(activityItems: [fileURL], applicationActivities: nil)
+
+            // Excluded activity types if needed (optional)
+            // activityViewController.excludedActivityTypes = [.airDrop, .addToReadingList]
+
+            // Present the UIActivityViewController
+            UIApplication.shared.windows.first?.rootViewController?.present(activityViewController, animated: true, completion: nil)
         } catch {
             print("Error saving or sharing GIF:", error.localizedDescription)
         }
     }
-//    struct ActivityViewController: UIViewControllerRepresentable {
-//        let activityItems: [Any]
-//        let applicationActivities: [UIActivity]? = nil
-//
-//        func makeUIViewController(context: UIViewControllerRepresentableContext<ActivityViewController>) -> UIActivityViewController {
-//            let controller = UIActivityViewController(activityItems: activityItems, applicationActivities: applicationActivities)
-//            return controller
-//        }
-//
-//        func updateUIViewController(_ uiViewController: UIActivityViewController, context: UIViewControllerRepresentableContext<ActivityViewController>) {
-//        }
-//    }
+
 
 }
