@@ -10,35 +10,35 @@ import SwiftUI
 struct TDScanView: View {
     @State private var tabSelection = 1
     @StateObject var dataModel = DataModel()
-    @State private var isLoggedIn = false
-    @State private var username = "User"
+    // @State private var isLoggedIn = false
+    // @State private var username = "User"
     var body: some View {
-        NavigationView {
+        // NavigationView {
 
-                HStack {
-                    Spacer()
-                    if isLoggedIn {
+        //         HStack {
+        //             Spacer()
+        //             if isLoggedIn {
                         
-                        Text(username)
-                            .font(.headline)
-                            .padding()
-                        Button(action: { isLoggedIn = false }) {
-                            Text("Log out")
-                                .font(.headline)
-                        }
-                    } else {
-                        Button(action: { isLoggedIn=LoginScreen() }) {
-                            Text("Log in")
-                                .font(.headline)
-                        }
-                        Button(action: { RegisterScreen()}) {
-                            Text("Registration")
-                                .font(.headline)
-                        }
-                    }
-                }
+        //                 Text(username)
+        //                     .font(.headline)
+        //                     .padding()
+        //                 Button(action: { isLoggedIn = false }) {
+        //                     Text("Log out")
+        //                         .font(.headline)
+        //                 }
+        //             } else {
+        //                 Button(action: { isLoggedIn=LoginScreen() }) {
+        //                     Text("Log in")
+        //                         .font(.headline)
+        //                 }
+        //                 Button(action: { RegisterScreen()}) {
+        //                     Text("Registration")
+        //                         .font(.headline)
+        //                 }
+        //             }
+        //         }
 
-        }
+        // }
        
         VStack {
             TabView(selection:$tabSelection){
