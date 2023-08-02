@@ -20,7 +20,7 @@ struct ArView: View {
     
     var body: some View {
         ZStack(alignment: .bottom) {
-            ARViewContainer(modelConfirmedForPlacement: $modelConfirmedForPlacement)
+            ARPlacementContainer(modelConfirmedForPlacement: $modelConfirmedForPlacement)
             
             if isPlacementEnabled {
                 PlacementButtonView(
@@ -53,7 +53,7 @@ func getModelFilenames() -> [Model] {
         return availableModels
 }
 
-struct ARViewContainer: UIViewRepresentable {
+struct ARPlacementContainer: UIViewRepresentable {
     @Binding var modelConfirmedForPlacement: Model?
 
     func makeUIView(context: Context) -> ARView {
@@ -70,7 +70,7 @@ struct ARViewContainer: UIViewRepresentable {
             if let modelEntity = model.modelEntity {
                 print("DEBUG: adding model to scene - \(model.name)")
                 
-                let anchorEntity = AnchorEntity(plane: .any)
+                let anchorEntity = AnchorEntity()
                 anchorEntity.addChild(modelEntity.clone(recursive: true))
                 
                 uiView.scene.addAnchor(anchorEntity)

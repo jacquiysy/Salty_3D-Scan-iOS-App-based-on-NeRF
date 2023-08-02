@@ -34,6 +34,7 @@
 		2A602C862A64372F0005E79C /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A602C7C2A64372F0005E79C /* PhotoPicker.swift */; };
 		2A602C8A2A6437DE0005E79C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A602C892A6437DE0005E79C /* HomeView.swift */; };
 		2A602C8C2A6438470005E79C /* ColumnStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A602C8B2A6438470005E79C /* ColumnStepper.swift */; };
+		2AA9BB4A2A7A759E007CD407 /* FocusEntity in Frameworks */ = {isa = PBXBuildFile; productRef = 2AA9BB492A7A759E007CD407 /* FocusEntity */; };
 		2AD2844D2A643A170075262F /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD2844C2A643A170075262F /* Item.swift */; };
 		5E12CC242A658563003E5807 /* MyFavouriteImages in Resources */ = {isa = PBXBuildFile; fileRef = 5E12CC232A658563003E5807 /* MyFavouriteImages */; };
 		5ED06CDC2A7A06C3009B88AF /* ImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED06CDB2A7A06C3009B88AF /* ImageViewModel.swift */; };
@@ -118,6 +119,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AA9BB4A2A7A759E007CD407 /* FocusEntity in Frameworks */,
 				0539EAB429654B0400C51AB9 /* cyclonedds in Frameworks */,
 				0539EAB12965458E00C51AB9 /* Zip in Frameworks */,
 				11D002922A79F74900E59E8C /* ZIPFoundation in Frameworks */,
@@ -279,6 +281,7 @@
 				0539EAB02965458E00C51AB9 /* Zip */,
 				0539EAB329654B0400C51AB9 /* cyclonedds */,
 				11D002912A79F74900E59E8C /* ZIPFoundation */,
+				2AA9BB492A7A759E007CD407 /* FocusEntity */,
 			);
 			productName = NeRFCapture;
 			productReference = C0C52A8C287E7F940011820F /* ThreeDScan.app */;
@@ -312,6 +315,7 @@
 				0539EAAF2965458E00C51AB9 /* XCRemoteSwiftPackageReference "Zip" */,
 				0539EAB229654B0400C51AB9 /* XCRemoteSwiftPackageReference "CycloneDDSPrebuild" */,
 				11D002902A79F74800E59E8C /* XCRemoteSwiftPackageReference "ZIPFoundation" */,
+				2AA9BB482A7A759E007CD407 /* XCRemoteSwiftPackageReference "FocusEntity" */,
 			);
 			productRefGroup = C0C52A8D287E7F940011820F /* Products */;
 			projectDirPath = "";
@@ -631,6 +635,14 @@
 				minimumVersion = 0.9.16;
 			};
 		};
+		2AA9BB482A7A759E007CD407 /* XCRemoteSwiftPackageReference "FocusEntity" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/maxxfrazer/FocusEntity";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -648,6 +660,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 11D002902A79F74800E59E8C /* XCRemoteSwiftPackageReference "ZIPFoundation" */;
 			productName = ZIPFoundation;
+		};
+		2AA9BB492A7A759E007CD407 /* FocusEntity */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2AA9BB482A7A759E007CD407 /* XCRemoteSwiftPackageReference "FocusEntity" */;
+			productName = FocusEntity;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

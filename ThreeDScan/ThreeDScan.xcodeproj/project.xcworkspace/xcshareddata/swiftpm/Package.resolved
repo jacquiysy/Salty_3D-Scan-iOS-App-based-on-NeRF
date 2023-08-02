@@ -10,6 +10,15 @@
       }
     },
     {
+      "identity" : "focusentity",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/maxxfrazer/FocusEntity",
+      "state" : {
+        "revision" : "68d404d7293225939cc717ce1115197c6e8a7af2",
+        "version" : "2.5.0"
+      }
+    },
+    {
       "identity" : "zip",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/marmelroy/Zip",
