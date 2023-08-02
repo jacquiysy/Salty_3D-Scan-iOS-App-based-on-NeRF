@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00F9B71C2A7A712F00C740A7 /* ModelPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F9B7192A7A712E00C740A7 /* ModelPickerView.swift */; };
+		00F9B71D2A7A712F00C740A7 /* FocusARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F9B71A2A7A712E00C740A7 /* FocusARView.swift */; };
+		00F9B71E2A7A712F00C740A7 /* PlacementButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F9B71B2A7A712E00C740A7 /* PlacementButtonView.swift */; };
+		00F9B7202A7A714700C740A7 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F9B71F2A7A714700C740A7 /* Model.swift */; };
+		00F9B7242A7A723B00C740A7 /* 3DModels in Resources */ = {isa = PBXBuildFile; fileRef = 00F9B7232A7A723B00C740A7 /* 3DModels */; };
 		050A8EFA296E738300C5C638 /* DatasetWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050A8EF9296E738200C5C638 /* DatasetWriter.swift */; };
 		050A8EFC296E8B8E00C5C638 /* DDSWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050A8EFB296E8B8E00C5C638 /* DDSWriter.swift */; };
 		0512301F29499F50003915D9 /* NeRFCaptureData.c in Sources */ = {isa = PBXBuildFile; fileRef = 0512301C29499F4F003915D9 /* NeRFCaptureData.c */; };
@@ -61,6 +66,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		00F9B7192A7A712E00C740A7 /* ModelPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelPickerView.swift; sourceTree = "<group>"; };
+		00F9B71A2A7A712E00C740A7 /* FocusARView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FocusARView.swift; sourceTree = "<group>"; };
+		00F9B71B2A7A712E00C740A7 /* PlacementButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacementButtonView.swift; sourceTree = "<group>"; };
+		00F9B71F2A7A714700C740A7 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		00F9B7232A7A723B00C740A7 /* 3DModels */ = {isa = PBXFileReference; lastKnownFileType = folder; path = 3DModels; sourceTree = "<group>"; };
 		050A8EF9296E738200C5C638 /* DatasetWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatasetWriter.swift; sourceTree = "<group>"; };
 		050A8EFB296E8B8E00C5C638 /* DDSWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDSWriter.swift; sourceTree = "<group>"; };
 		051230122942EE07003915D9 /* CycloneDDS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CycloneDDS-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -153,6 +163,7 @@
 		C0C52A83287E7F940011820F = {
 			isa = PBXGroup;
 			children = (
+				00F9B7232A7A723B00C740A7 /* 3DModels */,
 				5E12CC232A658563003E5807 /* MyFavouriteImages */,
 				5EDDECA12A64D81400A19158 /* Images */,
 				5EDDEC9F2A64D7B300A19158 /* TD_Object */,
@@ -181,6 +192,7 @@
 				C0C52AA5287EC2040011820F /* Views */,
 				C0C52AA4287EC1FA0011820F /* ViewModels */,
 				C0C52A8F287E7F940011820F /* AppDelegate.swift */,
+				00F9B71F2A7A714700C740A7 /* Model.swift */,
 				C0C52AA2287EC19A0011820F /* Utils.swift */,
 				C0C52A95287E7F960011820F /* Assets.xcassets */,
 				C0C52A97287E7F960011820F /* Preview Content */,
@@ -217,6 +229,9 @@
 				2A602C892A6437DE0005E79C /* HomeView.swift */,
 				2A602C8B2A6438470005E79C /* ColumnStepper.swift */,
 				2A602C7B2A64372F0005E79C /* DisplayView.swift */,
+				00F9B71A2A7A712E00C740A7 /* FocusARView.swift */,
+				00F9B7192A7A712E00C740A7 /* ModelPickerView.swift */,
+				00F9B71B2A7A712E00C740A7 /* PlacementButtonView.swift */,
 				5EDDECA52A64EC0100A19158 /* TestView.swift */,
 				2A602C732A64372F0005E79C /* FileManagerExtensions.swift */,
 				2A602C742A64372F0005E79C /* GridItemView.swift */,
@@ -314,6 +329,7 @@
 			files = (
 				5E12CC242A658563003E5807 /* MyFavouriteImages in Resources */,
 				5EDDECA22A64D81400A19158 /* Images in Resources */,
+				00F9B7242A7A723B00C740A7 /* 3DModels in Resources */,
 				5EDDECA02A64D7B300A19158 /* TD_Object in Resources */,
 				0512302029499F50003915D9 /* NeRFCaptureData.idl in Resources */,
 				C0C52A99287E7F960011820F /* Preview Assets.xcassets in Resources */,
@@ -331,6 +347,8 @@
 				C0C52AAA287EC2470011820F /* ARViewContainer.swift in Sources */,
 				2A602C822A64372F0005E79C /* TDScanView.swift in Sources */,
 				050A8EFA296E738300C5C638 /* DatasetWriter.swift in Sources */,
+				00F9B71D2A7A712F00C740A7 /* FocusARView.swift in Sources */,
+				00F9B71E2A7A712F00C740A7 /* PlacementButtonView.swift in Sources */,
 				5ED06CDC2A7A06C3009B88AF /* ImageViewModel.swift in Sources */,
 				C0C52A92287E7F940011820F /* ContentView.swift in Sources */,
 				5EDDEC9E2A64D69600A19158 /* ThreeDViewer.swift in Sources */,
@@ -348,6 +366,7 @@
 				2A602C802A64372F0005E79C /* ArView.swift in Sources */,
 				2A602C812A64372F0005E79C /* GridView.swift in Sources */,
 				2A602C852A64372F0005E79C /* DisplayView.swift in Sources */,
+				00F9B71C2A7A712F00C740A7 /* ModelPickerView.swift in Sources */,
 				2A602C862A64372F0005E79C /* PhotoPicker.swift in Sources */,
 				C0C52A90287E7F940011820F /* AppDelegate.swift in Sources */,
 				050A8EFC296E8B8E00C5C638 /* DDSWriter.swift in Sources */,
@@ -355,6 +374,7 @@
 				2A602C842A64372F0005E79C /* DetailView.swift in Sources */,
 				2A5422DF2A7A4BB20030B077 /* RegisterScreen.swift in Sources */,
 				C0C52AA3287EC19A0011820F /* Utils.swift in Sources */,
+				00F9B7202A7A714700C740A7 /* Model.swift in Sources */,
 				5EDDECA62A64EC0100A19158 /* TestView.swift in Sources */,
 				C0C52AA8287EC2390011820F /* ARViewModel.swift in Sources */,
 			);
