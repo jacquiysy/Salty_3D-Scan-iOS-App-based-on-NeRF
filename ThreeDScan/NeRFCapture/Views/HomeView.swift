@@ -18,11 +18,13 @@ struct HomeView: View {
     
     var body: some View {
         NavigationView {
+            
             VStack {
                 Text("Home")
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .padding(.bottom, 60.0)
+                
                 Button(action: { self.tabSelection = 2 }) {
                     Text("Scan")
                         .font(.largeTitle)
