@@ -31,6 +31,7 @@
 		2A602C8C2A6438470005E79C /* ColumnStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A602C8B2A6438470005E79C /* ColumnStepper.swift */; };
 		2AD2844D2A643A170075262F /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD2844C2A643A170075262F /* Item.swift */; };
 		5E12CC242A658563003E5807 /* MyFavouriteImages in Resources */ = {isa = PBXBuildFile; fileRef = 5E12CC232A658563003E5807 /* MyFavouriteImages */; };
+		5ED06CDC2A7A06C3009B88AF /* ImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED06CDB2A7A06C3009B88AF /* ImageViewModel.swift */; };
 		5EDDEC9E2A64D69600A19158 /* ThreeDViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDDEC9D2A64D69600A19158 /* ThreeDViewer.swift */; };
 		5EDDECA02A64D7B300A19158 /* TD_Object in Resources */ = {isa = PBXBuildFile; fileRef = 5EDDEC9F2A64D7B300A19158 /* TD_Object */; };
 		5EDDECA22A64D81400A19158 /* Images in Resources */ = {isa = PBXBuildFile; fileRef = 5EDDECA12A64D81400A19158 /* Images */; };
@@ -85,6 +86,7 @@
 		2A602C8B2A6438470005E79C /* ColumnStepper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColumnStepper.swift; sourceTree = "<group>"; };
 		2AD2844C2A643A170075262F /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		5E12CC232A658563003E5807 /* MyFavouriteImages */ = {isa = PBXFileReference; lastKnownFileType = folder; path = MyFavouriteImages; sourceTree = "<group>"; };
+		5ED06CDB2A7A06C3009B88AF /* ImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewModel.swift; sourceTree = "<group>"; };
 		5EDDEC9D2A64D69600A19158 /* ThreeDViewer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreeDViewer.swift; sourceTree = "<group>"; };
 		5EDDEC9F2A64D7B300A19158 /* TD_Object */ = {isa = PBXFileReference; lastKnownFileType = folder; path = TD_Object; sourceTree = "<group>"; };
 		5EDDECA12A64D81400A19158 /* Images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Images; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 				2A602C732A64372F0005E79C /* FileManagerExtensions.swift */,
 				2A602C742A64372F0005E79C /* GridItemView.swift */,
 				2A602C772A64372F0005E79C /* GridView.swift */,
+				5ED06CDB2A7A06C3009B88AF /* ImageViewModel.swift */,
 				2A602C782A64372F0005E79C /* TDScanView.swift */,
 				2A602C7C2A64372F0005E79C /* PhotoPicker.swift */,
 				2A602C792A64372F0005E79C /* ScanView.swift */,
@@ -328,6 +331,7 @@
 				C0C52AAA287EC2470011820F /* ARViewContainer.swift in Sources */,
 				2A602C822A64372F0005E79C /* TDScanView.swift in Sources */,
 				050A8EFA296E738300C5C638 /* DatasetWriter.swift in Sources */,
+				5ED06CDC2A7A06C3009B88AF /* ImageViewModel.swift in Sources */,
 				C0C52A92287E7F940011820F /* ContentView.swift in Sources */,
 				5EDDEC9E2A64D69600A19158 /* ThreeDViewer.swift in Sources */,
 				2AD2844D2A643A170075262F /* Item.swift in Sources */,
@@ -503,8 +507,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = TDScan;
+				MARKETING_VERSION = 2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "TDScan-test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -545,8 +549,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = TDScan;
+				MARKETING_VERSION = 2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "TDScan-test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
