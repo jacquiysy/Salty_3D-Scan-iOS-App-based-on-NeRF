@@ -47,22 +47,23 @@ func getModelFilenames() -> [Model] {
         // Dynamically get our model filenames
         let fileManager = FileManager.default
         let path = getDocumentsDirectory()
-        print(path)
+        // print(path)
         
         guard let files = try? fileManager.contentsOfDirectory(atPath: bundlePath) else {
             return []
         }
     
     
-        print(files)
+        // print(files)
         
         var availableModels: [Model] = []
         for filename in files where filename.hasSuffix("usdz") {
             let modelName = filename.replacingOccurrences(of: ".usdz", with: "")
             let model = Model(modelName: modelName)
             availableModels.append(model)
+            // print(filename)
         }
-        
+    print(availableModels.count)
         return availableModels
 }
 
@@ -88,6 +89,7 @@ struct ARPlacementContainer: UIViewRepresentable {
                 
                 uiView.scene.addAnchor(anchorEntity)
             } else {
+                print(111)
                 print("DEBUG: Unable to load modelEntity for \(model.name)")
             }
 
