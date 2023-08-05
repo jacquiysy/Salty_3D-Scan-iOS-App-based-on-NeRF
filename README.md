@@ -221,93 +221,6 @@ By leveraging these platform sub-systems and SDKs, the application enhances its 
 
 # View UI/UX
 Our UI/UX is composed of five main parts: Home, Scan, AR, Display and Gallery.
-## Final UI/UX Design
-### Home 
-This is the main screen of the app where you can access all the other sections. It provides an overview of the app’s features and allows you to navigate to different sections.
-<p align="center">
-  <img src="images/home.png" width="200" style="display: block; margin: auto;" />
-</p>
-
-### Scan
-This section allows you to scan real-life objects and turn them into 3D models either from online or offline mode. You can use your device’s camera to capture pictures  of the object from different angles following instructions, and the app will generate a 3D model based on these pictures. Below is the flow illustration of Scan part.
-
-
-**Step1: Choosing Online/Offline Mode**
-
-
-<p align="center">
-  <img src="images/scan1.png" width="200" style="display: block; margin: auto;" />
-</p>
-
-**Step2: Capture Pictures following Instructions and Save Frame**
-<p align="center">
-  <img src="images/scan3.png" width="200" style="display: block; margin: auto;" />
-</p>
-
-**Step3: Name Your Own Model and Upload Images**
-<p align="center">
-  <img src="images/scan4.png" width="200" style="display: block; margin: auto;" />
-</p>
-
-<p align="center">
-  <img src="images/sacn5.png" width="200" style="display: block; margin: auto;" />
-</p>
-
-**Step4: Generate Models**
-<p align="center">
-  <img src="images/san6.png" width="200" style="display: block; margin: auto;" />
-</p>
-
-<p align="center">
-  <img src="images/sacn7.png" width="200" style="display: block; margin: auto;" />
-</p>
-
-**Step5: Download Models**
-<p align="center">
-  <img src="images/san8.png" width="200" style="display: block; margin: auto;" />
-</p>
-
-### AR
- This section allows users to place  3D models in an augmented reality environment. Users can use their device’s camera to view the real world and place your 3D models in it, allowing them to see how they would look in a real-life setting.
- <p align="center">
-  <img src="images/ar1.png" width="200" style="display: block; margin: auto;" />
-</p>
-
-### Display
- This section allows users to preview your 3D models in more detail. Users can rotate, zoom, and pan around the model to view it from different angles. Users can also generate new views of the model and save or share them.
-
-**Step1: Select Model**
-
- <p align="center">
-  <img src="images/display1.png" width="200" style="display: block; margin: auto;" />
-</p>
-
-**Step2: View Model**
-
- <p align="center">
-  <img src="images/display2.png" width="200" style="display: block; margin: auto;" />
-</p>
-
-### Gallery
-This section allows users to view and manage their collection of 3D models. Users can search for models by name, view them in more detail, download online models uploaded by other users, and share them with others.
-
-
- <p align="center">
-  <img src="images/gallery1.png" width="200" style="display: block; margin: auto;" />
-</p>
-
-**Step1: Search a Model**
-
- <p align="center">
-  <img src="images/gallery2.png" width="200" style="display: block; margin: auto;" />
-</p>
-
-**Step2: View/Share Model**
-
- <p align="center">
-  <img src="images/gallery3.png" width="200" style="display: block; margin: auto;" />
-</p>
-
 
 ## Usability Test Results
 
@@ -346,3 +259,38 @@ Based on the findings from the mockup usability tests, we have made the followin
 
 These changes help enhance user satisfaction, minimize confusion, and create a more user-friendly and intuitive app interface for our users.
 
+
+## Final UI/UX Design
+### Home 
+This is the main screen of the app where you can access all the other sections. It provides an overview of the app’s features and allows you to navigate to different sections. Users can also choose to log in or register an account using the buttons at the top left and right corners.
+ <p align="center">
+  <img src="images/1Homepage.png" width="200" style="display: block; margin: auto;" />
+</p>
+
+### Scan
+This section allows you to scan real-life objects and turn them into 3D models either from online or offline mode. You can use your device’s camera to capture pictures  of the object from different angles following instructions, and the app will generate a 3D model based on these pictures. Below is the flow illustration of Scan part.
+The users will see a guidance about how to take photos of the target object, and receive real-time feedback during the process. If the camera is moving too fast, the users will receive a red colored warning. The users will then press the end button, and see a message of "Uploading Images". After that, the users can enter a name for the model. After submitting the model name, the users can choose to generate and download the model of their target objects.
+ <p align="center">
+  <img src="images/2Scan.png" width="200" style="display: block; margin: auto;" />
+</p>
+
+### AR
+This section allows users to place  3D models in an augmented reality environment. Users can use their device’s camera to view the real world and place your 3D models in it, allowing them to see how they would look in a real-life setting.
+When entering the AR placement interface, the users can choose the model of their target objects from the bottom slide menu. After that, they will focus their camera on a flat surface. When a flat surface is detected, the focusing frame will turn from dotted line to solid line and the users are allowed to place their model.
+ <p align="center">
+  <img src="images/3AR.png" width="200" style="display: block; margin: auto;" />
+</p>
+
+### Display
+This section allows users to preview your 3D models in more detail. Users can rotate, zoom, and play around the model to view it from different angles as well as share the model. Users can also generate gif views of the model and share them.
+When users enter the display interface, they will first see a list of available models. The users can choose a model to display by pressing the model name. The 3D representation of the model shows up with two buttons at the bottom: "download gif" and "share model". By pressing download gif, users will see a "downloading gif" message and then view the gif of the model. They will also be able to share the gif view to other apps after downloading the gif by pressing the share gif button.
+ <p align="center">
+  <img src="images/4Display.png" width="200" style="display: block; margin: auto;" />
+</p>
+
+### Gallery
+This section allows users to view and manage their collection of 3D models. Users can search for models by name, view them in more detail, and share them with others.
+When users enter the gallery interface, they will first see two chunks: local models and generated models. By entering the name of the target model in the search bar, our app will return real-time search result during typing. By clicking on the target model, the app will navigate to the model display page the same as that in the display section.
+ <p align="center">
+  <img src="images/5Gallery.png" width="200" style="display: block; margin: auto;" />
+</p>
