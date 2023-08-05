@@ -91,7 +91,7 @@ A reference for how to use flask can be easily found in: https://flask.palletspr
 
 ## Story Map
 <p align="center">
-  <img src="images/sm.png" width="500" style="display: block; margin: auto;" />
+  <img src="images/sm.png" width="1000" style="display: block; margin: auto;" />
 </p>
 
 | Component                | Description                              | Connection                               |
