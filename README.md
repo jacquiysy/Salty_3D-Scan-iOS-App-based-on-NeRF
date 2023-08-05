@@ -49,6 +49,9 @@ We will use ARKit for AR placement.
 | Yihan Jin |  Develop the 3D model display view of the app and test the availability. Contribute to some backend functionality such as the realization of the search function.   |  |
 # **Getting Started**: 
 
+#### Deploy frontend:
+Use XCode 14.3 with IOS 16.0 to build our XCode project. With out pre-installed packages, you're good to go.
+
 #### Deploy backend:
 
 ##### AI-related deployment:
