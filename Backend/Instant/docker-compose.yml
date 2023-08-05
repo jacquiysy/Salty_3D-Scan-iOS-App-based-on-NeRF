@@ -2,10 +2,10 @@ version: "3.8"
 
 services:
   instant-ngp:
-    image: instantngp:latest
+    image: instantngp2:latest
     build:
       context: ../instant-ngp
-      dockerfile: ../instant-ngp/.devcontainer/Dockerfile
+      dockerfile: ../instant-ngp/.devcontainer/newfile
     stdin_open: True
     tty: True
     environment:

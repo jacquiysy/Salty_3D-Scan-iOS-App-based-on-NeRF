@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+  instant-ngp:
+    image: instantngp2:latest
+    build:
+      context: ../instant-ngp
+      dockerfile: ../instant-ngp/.devcontainer/newfile
+    stdin_open: True
+    tty: True
+    environment:
+      NVIDIA_DRIVER_CAPABILITIES: compute,utility,graphics
+      DISPLAY: $DISPLAY
+    volumes:
+      - ..:/volume
+      # - ./output/:/volume/output
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    working_dir: /volume
+    command: python3 /opt/instant-ngp/scripts/colmap2nerf.py --colmap_matcher exhaustive --run_colmap --aabb_scale 32 --images /volume/input/BlueCup/images --out /voluem/input/BlueCup  && python3 /opt/instant-ngp/scripts/run.py --scene /volume/input/tmp --save_mesh /volume/output/BlueCup.obj
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+

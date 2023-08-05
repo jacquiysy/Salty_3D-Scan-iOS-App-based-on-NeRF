@@ -1,0 +1,22 @@
+FROM instant:latest
+
+ENV COLMAP_VERSION=3.7
+ENV CMAKE_VERSION=3.21.0
+ENV PYTHON_VERSION=3.7.0
+ENV OPENCV_VERSION=4.5.5.62
+ENV CERES_SOLVER_VERSION=2.0.0
+ENV TCNN_CUDA_ARCHITECTURES=80
+
+COPY ./requirements.txt ./
+
+RUN echo "Installing pip packages..." \
+	&& python3 -m pip install -U pip \
+	&& pip3 --no-cache-dir install -r ./requirements.txt \
+	&& pip3 --no-cache-dir install cmake==${CMAKE_VERSION} opencv-python==${OPENCV_VERSION} \
+	&& rm ./requirements.txt
+
+RUN echo $http_proxy \
+    && echo $https_proxy \ 
+    && echo $HTTPS_PROXY \
+    && echo $HTTP_PROXY \
+    && export http_proxy= 
