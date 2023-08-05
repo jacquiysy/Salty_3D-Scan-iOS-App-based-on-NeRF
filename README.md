@@ -47,7 +47,44 @@ We will use ARKit for AR placement.
 | Guanhua Xue |   The first feature I completed is build up logging system and registration system in both front end and backend.The second feature is build up the Django web interface for the gallery function. Although the approach was not adopted in the real implementation, this task required handling the integration of the Django web interface and resolving potential technical challenges. Thirdly,I also provided valuable support for UI/UX design and contributed to implementing UI/UX changes for the app. | **Challenge**: Integrating the frontend and backend components for user registration and login actions required careful coordination to handle user input, validation, and database interactions effectively.**How to Overcome:** To overcome this challenge, Guanhua Xue collaborated closely with both the frontend and backend development teams. Effective communication and regular meetings were held to define API requirements and establish a clear understanding of data formats and structures. Consistent testing and debugging were conducted to identify and address any issues in the interaction between the frontend and backend components. By working together as a team, Guanhua Xue successfully achieved the seamless integration of the User Registration and Logging System, ensuring a smooth user experience throughout the registration and login process. |
 | Chenhao Zheng |  Mainly takes charge of all the AR related functionalities (showing 3D objects in AR&VR, moving objects with hands, identify contact surface, and place objects, etc.).   Currently, the code is in this repo (https://github.com/hellomuffin/ARfor3D.git) and not integrating into the main branch to avoid dependency conflicts.     |  |
 | Yihan Jin |  Develop the 3D model display view of the app and test the availability. Contribute to some backend functionality such as the realization of the search function.   |  |
+# **Getting Started**: 
+
+#### Deploy backend:
+
+##### AI-related deployment:
+
+We require the users have NVIDIA GPUs with at least 8G GPU memory and Nvidia CUDA and Toolkit installed.  For reference, our server are installed with 4 NVIDIA A100-80G gpus, with CUDA 12.1 and corresponding cudnn installed.
+
+Nvidia Driver: https://www.nvidia.com/Download/index.aspx?lang=en-us
+
+Nvidia CUDA: https://developer.nvidia.com/cuda-downloads
+
+Nvidia CUDNN Toolkit: https://docs.nvidia.com/cudnn/index.html
+
+
+
+We utilizing docker for deploy our AI-related features, especially the Instant-NGP algorithms. Utilizing docker allows us to due as much as request as possible.  Here we provide the instructions for installed the docker and docker API:
+
+Docker: https://docs.docker.com/get-docker/
+
+Docker-compose: https://docs.docker.com/compose/
+
+Nvidia-docker2: https://github.com/NVIDIA/nvidia-docker
+
+Python-on-whales: https://gabrieldemarmiesse.github.io/python-on-whales/
+
+
+
+We also provide a test scripts in ``/Backend/Instant``, if the ``python compose_test.py`` can run without error, then the AI part are installed successfully.
+
+##### API-related deployment:
+
+Our backend is deployed using the flask framework, which is a much lighter backend. Our backend can be easily installed by ``pip install -r requirements``,  and to deploy, just run ``python app.py``. 
+
+A reference for how to use flask can be easily found in: https://flask.palletsprojects.com/en/2.3.x/
+
 # Model and Engine
+
 ## Story Map
 
 ![stroyMap](https://github.com/jacquiysy/Salty/assets/55369832/c62b8f6c-3b1f-4168-865d-2a0efeb6ba48)
@@ -68,7 +105,7 @@ Use ARKit offered by swift, which contains a rendering function. Then Use camera
 
 
 ### 3D Generating Models
-We utilize the taken image and the Nerf algorithm to train a MLP model, which should contain the 3D information. By quering from different pose, he output will be a Nerf-based MLP parameter, which could be considered as a compressed version of the 3D model. The generated MLP parameter could be generated to other popular 3D representation format, such as the Mesh format, using Nerf2Mesh algorithm.
+We utilize the taken image and the Nerf algorithm to train a MLP model, which should contain the 3D information. By querying from different pose, he output will be a Nerf-based MLP parameter, which could be considered as a compressed version of the 3D model. The generated MLP parameter could be generated to other popular 3D representation format, such as the Mesh format, using Nerf2Mesh algorithm.
 
 Ref: Instant Nerf: https://github.com/NVlabs/instant-ngp
 Ref: Nerf2Mesh: https://github.com/ashawkey/nerf2mesh
