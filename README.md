@@ -35,8 +35,8 @@ scikit-learn
 torchmetrics
 `
 
-## Unity for AR Placement
-We will use [Unity](https://unity.com/) for AR placement 
+## AR Placement
+We will use ARKit for AR placement.
 
 # Model and Engine
 ## Story Map
