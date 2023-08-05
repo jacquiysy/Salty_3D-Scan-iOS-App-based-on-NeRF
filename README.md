@@ -37,7 +37,18 @@ torchmetrics
 
 ## AR Placement
 We will use ARKit for AR placement.
+# Team Roster
 
+| Team Member       | Contribution  | Challenges Faced and How to Overcome |
+| ------------------------ | ------------------ | --------------------------------- |
+| Zihao Wei |  Develop and deploy the 3D representation generation using instant-ngp on the backend server; Develop a light flask backend with all the features needed; Develop frontend 3d model displayment function; |  |
+| Zixuan Pan |  Scan guiding; Model generating and downloading frontend interface; 3D model display frontend; Data collection and interaction with backend. |  |
+| Shuyuan Yang | Build up the whole frontend framework of the app, including each section view, homepage view, tabview, and navigation system. Help with merging Nerf capture scan function into the app framework. Test to ensure the 3D viewer can display .obj files in the display section. Establish the grid view, file management system, and search function in the currently unfinished gallery section. |  |
+| Guanhua Xue |   The first feature I completed is build up logging system and registration system in both front end and backend.The second feature is build up the Django web interface for the gallery function. Although the approach was not adopted in the real implementation, this task required handling the integration of the Django web interface and resolving potential technical challenges. Thirdly,I also provided valuable support for UI/UX design and contributed to implementing UI/UX changes for the app. | Challenge: Integrating the frontend and backend components for user registration and login actions required careful coordination to handle user input, validation, and database interactions effectively.
+
+How to Overcome: To overcome this challenge, Guanhua Xue collaborated closely with both the frontend and backend development teams. Effective communication and regular meetings were held to define API requirements and establish a clear understanding of data formats and structures. Consistent testing and debugging were conducted to identify and address any issues in the interaction between the frontend and backend components. By working together as a team, Guanhua Xue successfully achieved the seamless integration of the User Registration and Logging System, ensuring a smooth user experience throughout the registration and login process. |
+| Chenhao Zheng |  Mainly takes charge of all the AR related functionalities (showing 3D objects in AR&VR, moving objects with hands, identify contact surface, and place objects, etc.).   Currently, the code is in this repo (https://github.com/hellomuffin/ARfor3D.git) and not integrating into the main branch to avoid dependency conflicts.     |  |
+| Yihan Jin |  Develop the 3D model display view of the app and test the availability. Contribute to some backend functionality such as the realization of the search function.   |  |
 # Model and Engine
 ## Story Map
 
@@ -252,12 +263,4 @@ Based on the findings from the mockup usability tests, we have made the followin
 * Refined share view function: Requiring the generation of a view before the share button appears ensures that users only attempt to share completed and desired images. This avoids unintended sharing of undesired views.
 
 These changes help enhance user satisfaction, minimize confusion, and create a more user-friendly and intuitive app interface for our users.
-# Team Roster
-| Team Member       | Contribution  |
-| ------------------------ | ------------------ |
-| Zihao Wei |  Develop and deploy the 3D representation generation using instant-ngp on the backend server; Develop a light flask backend with all the features needed; Develop frontend 3d model displayment function;|
-| Zixuan Pan |  Scan guiding; Model generating and downloading frontend interface; 3D model diaplay frontend; Data collection and iteraction with backend.   |
-| Shuyuan Yang | Build up the whole frontend framework of the app, including each section view, homepage view, tabview and navigation system. Help with merging Nerf capture scan function into the app framework. Test to ensure the 3D viewer can display .obj files in display section. Establish the grid view, file management system and search function in the currently unfinished gallery section. |
-| Guanhua Xue |   Part of Gallery Backend; Build up Django web interface for gallery function.(Not adopted in real implementation); Help with UI/UX design and changes for APP.  | 
-| Chenhao Zheng |  Mainly take charge of all the AR related functionalities (showing 3D objects in AR&VR, moving objects with hands, identify contact surface and place objects, etc ).   Currently the code is in this repo (https://github.com/hellomuffin/ARfor3D.git) and not integrating into main branch to avoid dependency conflict.     |
-| Yihan Jin |  Develop the 3D model display view of the app and test the availability. Contribute to some backend functionality such as the realization of search function.      |
+
