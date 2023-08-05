@@ -269,7 +269,7 @@ struct GenerateModelView: View {
     
     
     func performGetRequest() {
-        guard let url = URL(string: viewModel.datasetWriter.baseURL + "launch2/" + modelName) else {
+        guard let url = URL(string: viewModel.datasetWriter.baseURL + "launch/" + modelName) else {
             print("Invalid URL")
             NotificationCenter.default.post(name: NSNotification.Name("Generating finished"), object:nil)
             return
