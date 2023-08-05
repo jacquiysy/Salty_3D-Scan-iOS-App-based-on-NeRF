@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+  instant-ngp:
+    image: instantngp:latest
+    build:
+      context: ../instant-ngp
+      dockerfile: ../instant-ngp/.devcontainer/Dockerfile
+    stdin_open: True
+    tty: True
+    environment:
+      NVIDIA_DRIVER_CAPABILITIES: compute,utility,graphics
+      DISPLAY: $DISPLAY
+    volumes:
+      - ..:/volume
+      # - ./output/:/volume/output
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    working_dir: /volume
+    command:  python3 /opt/instant-ngp/scripts/nerfcapture2nerf.py --scene /volume/input/BlueCup --save_path /volume/input/tmp --n_frame 22 --overwirte && python3 /opt/instant-ngp/scripts/run.py --scene /volume/input/tmp --save_mesh /volume/output/BlueCup.obj --video_camera_path /volume/input/base_cam.json --video_output /volume/output/BlueCup.mp4  --video_n_seconds 5 --n_steps 1000 --video_fps 10
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+

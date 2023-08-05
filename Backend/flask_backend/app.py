@@ -7,7 +7,8 @@ import shutil
 import zipfile
 from flask_sqlalchemy import SQLAlchemy
 from  flask_login import LoginManager, login_required, login_user,logout_user
-
+import moviepy.editor as mp
+import json
 app = Flask(__name__)
 
 UPLOAD_FOLDER = 'upload'
@@ -95,11 +96,18 @@ def launch(filename):
 
 
     old_input_dir_file = os.path.join(app.config['INPUT_FOLDER'], dir_name)
-
+      
     if os.path.exists(old_input_dir_file):
         shutil.rmtree(old_input_dir_file)
-
+    
+#    print(zip_path)
     zipping_success = unzip_file(zip_path, input_dir)
+    
+#    print(input_dir, input_dir_file)
+#    frame_num = os.listdir(os.path.join(input_dir,filename,"images"))
+#    print(frame_num)
+    
+#    frame_num = len(frame_num)
 
     if not zipping_success:
         return "error"
@@ -108,6 +116,10 @@ def launch(filename):
 #        old_input_dir_file = os.path.join(app.config['INPUT_FOLDER'], dir_name)
         os.rename(old_input_dir_file, input_dir_file)
     
+    frame_num = os.listdir(os.path.join(input_dir,filename,"images"))
+    print(frame_num)
+    frame_num = len(frame_num)
+
     #Make dir and copy cover image
     output_dir_name = os.path.join(app.config['OUTPUT_FOLDER'], filename)
     if os.path.exists(output_dir_name):
@@ -117,10 +129,19 @@ def launch(filename):
     source_image = os.path.join(input_dir_file,"images/0.png")
     target_image = os.path.join(output_dir_name,filename +".png")
     shutil.copy(source_image, target_image)
+    
+    with open(os.path.join(input_dir_file,'transforms.json'), 'r') as f:
+        load_dict = json.load(f)
+        load_dict["scale"]=1
+        load_dict["aabb_scale"]=1
+        
+    with open(os.path.join(input_dir_file,'transforms.json'), 'w', encoding='utf-8') as f2:
+        json.dump(load_dict, f2, ensure_ascii=False)
 
     with open("./docker-compose.yml","r") as f:
         template = f.read()
-        template = template.format(filename,filename,filename)
+        template = template.format(filename, filename,filename)
+    
     yml_name = "{}.yml".format(filename)
     yml_path = os.path.join(app.config['YML_FOLDER'], yml_name)
     with open( yml_path ,"w") as f:
@@ -133,6 +154,14 @@ def launch(filename):
     
     shutil.move(os.path.join(app.config["OUTPUT_FOLDER"],filename + ".obj"),os.path.join(output_dir_name, filename + ".obj"))
     shutil.move(os.path.join(app.config["OUTPUT_FOLDER"],filename + ".mp4"),os.path.join(output_dir_name, filename + ".mp4"))
+    
+    zipping_path = os.path.join(output_dir_name, filename + ".zip")
+    z = zipfile.ZipFile(zipping_path,'w')
+    z.write(os.path.join(output_dir_name, filename + ".obj"))
+    z.close()
+    
+    clips = mp.VideoFileClip(os.path.join(output_dir_name,filename + ".mp4"))
+    clips.write_gif(os.path.join(output_dir_name,filename + ".gif"))
     return "finished"
 
 
@@ -148,7 +177,8 @@ def list_output_dir():
     filenames = []
     for file in os.listdir(OUTPUT_PATH):
         filenames.append(file)
-    return filenames
+    file_return = {"filenames":filenames}
+    return file_return
 
 
 @app.route('/list_upload_dir')

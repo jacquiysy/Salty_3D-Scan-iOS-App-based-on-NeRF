@@ -6,3 +6,5 @@ pybind11
 pyquaternion
 scipy
 tqdm
+dataclasses
+

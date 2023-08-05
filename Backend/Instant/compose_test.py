@@ -1,17 +1,18 @@
 from python_on_whales import DockerClient
 
-name = "fox"
+name = "BlueCup"
 
 InputDataName = name
 SaveVideoName = name
 SaveMeshName = name
 
-with open("./docker-compose.yml","r") as f:
-    template = f.read()
-    print(template)
-    template = template.format(InputDataName,SaveMeshName,SaveVideoName)
-with open("{}.yml".format(name),"w") as f:
-    f.write(template)
+#with open("./docker-compose.yml","r") as f:
+#    template = f.read()
+#    print(template)
+#    template = template.format(InputDataName,SaveMeshName,SaveVideoName)
+#with open("{}.yml".format(name),"w") as f:
+#    f.write(template)
+
 docker = DockerClient(compose_files=["{}.yml".format(name)])
 docker.compose.build()
 docker.compose.up()

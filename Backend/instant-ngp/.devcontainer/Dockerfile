@@ -73,7 +73,7 @@ RUN echo $http_proxy \
     && echo $https_proxy \ 
     && echo $HTTPS_PROXY \
     && echo $HTTP_PROXY \
-	&& export http_proxy= 
+    && export http_proxy= 
 
 RUN echo "Installing Ceres Solver ver. ${CERES_SOLVER_VERSION}..." \
 	&& cd /opt \
