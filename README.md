@@ -73,6 +73,8 @@ Nvidia-docker2: https://github.com/NVIDIA/nvidia-docker
 
 Python-on-whales: https://gabrieldemarmiesse.github.io/python-on-whales/
 
+Instant-NGP: https://github.com/NVlabs/instant-ngp
+
 
 
 We also provide a test scripts in ``/Backend/Instant``, if the ``python compose_test.py`` can run without error, then the AI part are installed successfully.
