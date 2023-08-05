@@ -266,7 +266,7 @@ This is the main screen of the app where you can access all the other sections. 
 
 Here is a picture of Homepage UI/UX flow.
  <p align="center">
-  <img src="images/1Homepage.png" width="600" style="display: block; margin: auto;" />
+  <img src="images/1Homepage.png" width="800" style="display: block; margin: auto;" />
 </p>
 
 ### Scan
@@ -276,7 +276,7 @@ The users will see a guidance about how to take photos of the target object, and
 
 Here is a picture of Scan UI/UX flow.
  <p align="center">
-  <img src="images/2Scan.png" width="600" style="display: block; margin: auto;" />
+  <img src="images/2Scan.png" width="800" style="display: block; margin: auto;" />
 </p>
 
 ### AR
@@ -286,7 +286,7 @@ When entering the AR placement interface, the users can choose the model of thei
 
 Here is a picture of AR UI/UX flow.
  <p align="center">
-  <img src="images/3AR.png" width="600" style="display: block; margin: auto;" />
+  <img src="images/3AR.png" width="800" style="display: block; margin: auto;" />
 </p>
 
 ### Display
@@ -296,7 +296,7 @@ When users enter the display interface, they will first see a list of available 
 
 Here is a picture of Display UI/UX flow.
  <p align="center">
-  <img src="images/4Display.png" width="600" style="display: block; margin: auto;" />
+  <img src="images/4Display.png" width="800" style="display: block; margin: auto;" />
 </p>
 
 ### Gallery
@@ -306,5 +306,5 @@ When users enter the gallery interface, they will first see two chunks: local mo
 
 Here is a picture of Gallery UI/UX flow.
  <p align="center">
-  <img src="images/5Gallery.png" width="600" style="display: block; margin: auto;" />
+  <img src="images/5Gallery.png" width="800" style="display: block; margin: auto;" />
 </p>
